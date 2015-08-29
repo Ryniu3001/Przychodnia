@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B0810D6D-6B82-99B2-406E-C2E86D47382B" name="Doctor_Clinic">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="User_ID" id="BF39C09D-3647-9B29-8B17-883F927CFEB7">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E61B5B9-A90D-25A9-9B0C-35815399A033" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
+</associations>
+</Column>
+<Column name="Clinic_ID" id="A69786DD-0314-3C19-E1A5-B95F33C5E74A">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>AA16D760-513C-7876-7B76-90788D1B60C2</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="97F77639-6D43-C09B-50F9-8A96482AF191" referredColumn="AA16D760-513C-7876-7B76-90788D1B60C2"/>
+</associations>
+</Column>
+<Column name="DayOfWeek" id="50659246-6542-D2F6-9FF5-B0E7BF14B244">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:20:25 UTC</createdTime>
+<generatorID>70E1F64D-EE84-617E-2869-6E394C9CC165</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="HourFrom" id="9D5FABC5-73BF-1A86-97A0-910B326AADA8">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:20:25 UTC</createdTime>
+<generatorID>97034236-87E0-F2F8-9645-C356560CC697</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="HourTo" id="55D48F7D-7D6D-FC67-1726-8EE2F29BE8F7">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:20:25 UTC</createdTime>
+<generatorID>F892A01A-017E-C4C2-3E95-D177C4E39038</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="contract_expire" id="E0266EE1-FC7D-07FA-0E10-B5492BF8645E">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:20:25 UTC</createdTime>
+<generatorID>1C8715E7-3DCD-9305-494D-67C550915975</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6C428585-03FA-1458-1B7E-406658A5257B" name="Doctor_Clinic_PK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF39C09D-3647-9B29-8B17-883F927CFEB7"/>
+<colUsage columnID="A69786DD-0314-3C19-E1A5-B95F33C5E74A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5E342816-EEAB-F70F-346C-1683ADC3C7EF" name="FK_ASS_1">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>A9437897-554D-CCCB-CE99-7095BC4EC193</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF39C09D-3647-9B29-8B17-883F927CFEB7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE21B0BB-80C5-13BA-927C-F3CE4A6301AD" name="FK_ASS_2">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>A9437897-554D-CCCB-CE99-7095BC4EC193</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A69786DD-0314-3C19-E1A5-B95F33C5E74A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

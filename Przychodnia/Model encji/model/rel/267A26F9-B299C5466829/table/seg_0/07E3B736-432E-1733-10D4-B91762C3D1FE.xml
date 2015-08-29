@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07E3B736-432E-1733-10D4-B91762C3D1FE" name="User">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>AD55972D-16D4-5265-4E2F-C63C4ACB1BE0</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="F2841BDB-19CE-F31E-7A65-77DC6E155357">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>CD445D60-6C82-B6DA-92B7-14A585C2F7CB</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="D3A6CCD4-868F-0CC6-5D28-2307827A4CEF">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>59C82FFC-1B8F-EA23-CDE7-046E6754175A</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Surname" id="0F353A6E-1232-3067-5C05-6FCE194673B4">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>98147D64-52FB-DBD3-7003-FF320D07D4BA</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pesel" id="9E445FAB-0AAD-DA41-F964-F235C4AF735F">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>5AB2E114-4E36-1137-1CCC-AE8079BBFAD4</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="City" id="14A9713D-46DD-14D9-CF8D-70566E5A9147">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>C3BCEE3C-9C74-CDC8-10C4-C408B56E9730</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ZIP_code" id="12EBD036-37B4-8E9E-7720-50998FC998AC">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>F5BEE27B-361D-36D2-2882-18B0EC0BB260</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="house_nr" id="000ED5D8-98E9-5528-C2BE-8FAC5C2F7AE5">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>F26BCAAD-9123-80FE-2E48-7E971005F033</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Type" id="9A645604-313B-E161-35FD-3DF6C214463D">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>ECEE1E1D-B992-4CA7-9474-E5799B7B81EA</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PWZ" id="2A213AE6-4654-32F1-8470-3774AE97F545">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:20:25 UTC</createdTime>
+<generatorID>6C7D3DC3-C8B7-71B8-483F-4B29A66DC58E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Username" id="1F277DDF-BA64-3653-F5BC-3681C4A02958">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:29:45 UTC</createdTime>
+<generatorID>DB55C5F2-46A9-CE19-3AC4-2CAC84F497E7</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Password" id="A5BBF819-2660-B20F-F31F-FAF23AB786EE">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:29:45 UTC</createdTime>
+<generatorID>71F50E5B-2AB0-BA30-0310-860F3142D617</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8984B9C4-04FD-C60D-CEA6-DB03548D6FA2" name="User_PK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>B15FF6FB-E4FA-EFD4-3140-C968F1F2A364</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E5A5645D-102B-E16C-64E6-A78EAF5D9FD0" name="User__UN">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:20:25 UTC</createdTime>
+<generatorID>FE6B219C-E468-AD8A-2D80-8F72EAA8A78F</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E445FAB-0AAD-DA41-F964-F235C4AF735F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

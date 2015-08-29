@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Doctor_Clinic" directorySegmentName="seg_0" id="A9437897-554D-CCCB-CE99-7095BC4EC193">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:07:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>AD55972D-16D4-5265-4E2F-C63C4ACB1BE0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E9611EB3-925D-7E64-9C26-F409AE9BEB7B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="DayOfWeek" id="70E1F64D-EE84-617E-2869-6E394C9CC165">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:15:51 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</attribute>
+<attribute name="HourFrom" id="97034236-87E0-F2F8-9645-C356560CC697">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:16:28 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+</attribute>
+<attribute name="HourTo" id="F892A01A-017E-C4C2-3E95-D177C4E39038">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:18:39 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+</attribute>
+<attribute name="contract_expire" id="1C8715E7-3DCD-9305-494D-67C550915975">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:19:55 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</attribute>
+</attributes>
+</Relation>

@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="459CA340-66E8-8C25-11F7-9F1A95A0AF59" name="Clinic">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>E9611EB3-925D-7E64-9C26-F409AE9BEB7B</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="AA16D760-513C-7876-7B76-90788D1B60C2">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>7E019DA7-517F-5923-5686-CC51AFE86EF6</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="8B6BF1AA-E13F-1E5A-C045-2A3865D4033F">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>F6593DF4-378D-F3A5-9960-7102C5EA9010</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0C699280-76A3-F66E-D25A-0C1DCBCD1985" name="Clinic_PK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>CCFDCF6B-1C03-F788-783E-08A088C140C6</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA16D760-513C-7876-7B76-90788D1B60C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

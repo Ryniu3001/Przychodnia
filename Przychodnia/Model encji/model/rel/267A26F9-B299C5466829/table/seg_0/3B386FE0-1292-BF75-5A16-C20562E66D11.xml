@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3B386FE0-1292-BF75-5A16-C20562E66D11" name="Reg_notification">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>789A2424-0912-31A8-7C7A-5E18F1ED9AA9</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="492AB3F3-D130-648C-2E2A-C28473DFF236">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>EB0FE310-913A-1F73-A53B-AA0AF2FB3F08</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Read" id="F0CCD997-DFF6-7BEF-FE29-1FE8EEFC6234">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>34107022-47A7-5CD6-73D5-CBCBC4B9B8D3</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_ID" id="08267E54-B098-8A92-C1B2-90931240D60F">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>9ADDF8CA-6965-8C2F-B00E-CD1090CDCD2D</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8DBC2844-722E-2088-A851-05357749BFFC" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="64EF8E5E-1FD2-9859-CD89-18A9219AD92A" name="Reg_notification_PK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>3DA012A9-E8C5-0AF7-F0FF-C72A1E676711</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="492AB3F3-D130-648C-2E2A-C28473DFF236"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D66B15D-FF3C-B1F1-E718-5792BAE8C609" name="Reg_notification__IDX">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>A7237CBE-6C0B-9A6D-58C7-8A68E3CB2D15</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="08267E54-B098-8A92-C1B2-90931240D60F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8CE28E8-E374-F6F8-7D88-DD9C0C341BF4" name="Reg_notification_User_FK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>A7237CBE-6C0B-9A6D-58C7-8A68E3CB2D15</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="08267E54-B098-8A92-C1B2-90931240D60F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

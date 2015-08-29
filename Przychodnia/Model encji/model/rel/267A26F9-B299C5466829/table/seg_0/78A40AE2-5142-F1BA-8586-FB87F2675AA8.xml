@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78A40AE2-5142-F1BA-8586-FB87F2675AA8" name="Visit">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>FF244E0F-E28B-9DA7-BCF3-F9319BC887D2</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="AC84F9C4-BDE3-99CA-7E56-DD9F5F93002F">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>F7C7CF36-2AA0-35C6-C019-F2CE590F871A</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_ID" id="735874AC-10DE-94D8-B596-056122B70867">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>EEA07AB9-575C-90B0-63F7-2749BB398A01</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="08FF0A33-B587-E088-FA34-484A935BB02A" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
+</associations>
+</Column>
+<Column name="User_ID2" id="D1AEC77F-39F2-9C08-987B-62D8573757FB">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>E3E53EC7-D77E-FF79-F816-1BB1D5A0CBB7</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E87F967C-EBF0-6185-D5AE-CC3F77F32995" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
+</associations>
+</Column>
+<Column name="Date" id="0ADFFC51-9D47-089E-E067-AADBE6282A68">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:28:04 UTC</createdTime>
+<generatorID>CC7B842C-E3C6-18AB-DAFD-99D0F4A7C19E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B572C3FC-0871-F574-E320-FAE9E280C080" name="Visit_PK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>926B6347-1F37-3EAE-5C0B-8545247D4879</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC84F9C4-BDE3-99CA-7E56-DD9F5F93002F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3118DC48-B137-C32A-4198-3381D3F85B04" name="Visit__IDX">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>41CDDB2E-78BC-E68F-A75A-7571B4755A8E</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="735874AC-10DE-94D8-B596-056122B70867"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE61A3F6-D400-BA62-52BC-2C8CD6E1906E" name="Visit__IDXv1">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>9B5A7281-367A-98DA-902E-D55C93ED5363</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="D1AEC77F-39F2-9C08-987B-62D8573757FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EEAB25F7-557E-4CF0-516F-492431E885C4" name="Visit_User_FK">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>41CDDB2E-78BC-E68F-A75A-7571B4755A8E</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="735874AC-10DE-94D8-B596-056122B70867"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C63FF803-1050-1539-118E-DAB04B2C136D" name="Visit_User_FKv2">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-28 22:08:57 UTC</createdTime>
+<generatorID>9B5A7281-367A-98DA-902E-D55C93ED5363</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D1AEC77F-39F2-9C08-987B-62D8573757FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
