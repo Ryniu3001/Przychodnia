@@ -1,13 +1,13 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="Table" objectID="07E3B736-432E-1733-10D4-B91762C3D1FE" name="User" seqName="seg_0"/>
-   <object objectType="Table" objectID="3B386FE0-1292-BF75-5A16-C20562E66D11" name="Reg_notification" seqName="seg_0"/>
    <object objectType="Table" objectID="459CA340-66E8-8C25-11F7-9F1A95A0AF59" name="Clinic" seqName="seg_0"/>
-   <object objectType="Table" objectID="78A40AE2-5142-F1BA-8586-FB87F2675AA8" name="Visit" seqName="seg_0"/>
    <object objectType="Table" objectID="B0810D6D-6B82-99B2-406E-C2E86D47382B" name="Doctor_Clinic" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="08FF0A33-B587-E088-FA34-484A935BB02A" name="Visit_User_FK" seqName="seg_0"/>
+   <object objectType="Table" objectID="3B386FE0-1292-BF75-5A16-C20562E66D11" name="Reg_notification" seqName="seg_0"/>
+   <object objectType="Table" objectID="07E3B736-432E-1733-10D4-B91762C3D1FE" name="User_data" seqName="seg_0"/>
+   <object objectType="Table" objectID="78A40AE2-5142-F1BA-8586-FB87F2675AA8" name="Visit" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="0E61B5B9-A90D-25A9-9B0C-35815399A033" name="FK_ASS_1" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="8DBC2844-722E-2088-A851-05357749BFFC" name="Reg_notification_User_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="97F77639-6D43-C09B-50F9-8A96482AF191" name="FK_ASS_2" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="E87F967C-EBF0-6185-D5AE-CC3F77F32995" name="Visit_User_FKv2" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="8DBC2844-722E-2088-A851-05357749BFFC" name="Reg_notification_User_data_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="08FF0A33-B587-E088-FA34-484A935BB02A" name="Visit_User_data_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E87F967C-EBF0-6185-D5AE-CC3F77F32995" name="Visit_User_data_FKv1" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

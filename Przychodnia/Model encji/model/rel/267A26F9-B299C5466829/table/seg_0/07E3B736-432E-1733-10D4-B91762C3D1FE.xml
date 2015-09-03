@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07E3B736-432E-1733-10D4-B91762C3D1FE" name="User">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07E3B736-432E-1733-10D4-B91762C3D1FE" name="User_data">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>AD55972D-16D4-5265-4E2F-C63C4ACB1BE0</generatorID>
@@ -16,7 +16,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
-<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Name" id="D3A6CCD4-868F-0CC6-5D28-2307827A4CEF">
@@ -130,7 +129,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="8984B9C4-04FD-C60D-CEA6-DB03548D6FA2" name="User_PK">
+<ind_PK_UK id="8984B9C4-04FD-C60D-CEA6-DB03548D6FA2" name="User_data_PK">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>B15FF6FB-E4FA-EFD4-3140-C968F1F2A364</generatorID>
@@ -142,7 +141,7 @@
 <colUsage columnID="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="E5A5645D-102B-E16C-64E6-A78EAF5D9FD0" name="User__UN">
+<ind_PK_UK id="E5A5645D-102B-E16C-64E6-A78EAF5D9FD0" name="User_data__UN">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:20:25 UTC</createdTime>
 <generatorID>FE6B219C-E468-AD8A-2D80-8F72EAA8A78F</generatorID>
@@ -151,6 +150,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9E445FAB-0AAD-DA41-F964-F235C4AF735F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DFEB3D7F-F4D0-7258-2FB4-AA3783D70600" name="User_data__UNv1">
+<createdBy>Marcin</createdBy>
+<createdTime>2015-08-29 16:02:16 UTC</createdTime>
+<generatorID>E85C66A8-5E1C-A417-5E5E-8D800B724CF6</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F277DDF-BA64-3653-F5BC-3681C4A02958"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

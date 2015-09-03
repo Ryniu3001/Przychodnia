@@ -27,7 +27,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="FF244E0F-E28B-9DA7-BCF3-F9319BC887D2" otype="Entity" vid="EE5E2B77-3CC0-C6EE-5AAF-99F175C994DE">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="583" y="313" width="181" height="128"/>
+<bounds x="497" y="298" width="181" height="128"/>
 </OView>
 </objectViews>
 <connectors>
@@ -35,40 +35,40 @@
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="455" y="172"/>
-<point x="455" y="291"/>
-<point x="624" y="291"/>
-<point x="624" y="313"/>
+<point x="525" y="172"/>
+<point x="525" y="214"/>
+<point x="608" y="214"/>
+<point x="608" y="298"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="9B5A7281-367A-98DA-902E-D55C93ED5363" otype="Relation" vid_source="681E8F2E-6A0B-C7EC-6837-150D47C00BE0" vid_target="EE5E2B77-3CC0-C6EE-5AAF-99F175C994DE">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="567" y="172"/>
-<point x="567" y="179"/>
-<point x="736" y="179"/>
-<point x="736" y="313"/>
+<point x="497" y="172"/>
+<point x="497" y="242"/>
+<point x="580" y="242"/>
+<point x="580" y="298"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="A7237CBE-6C0B-9A6D-58C7-8A68E3CB2D15" otype="Relation" vid_source="681E8F2E-6A0B-C7EC-6837-150D47C00BE0" vid_target="7F2983E7-2AA4-DC9B-385E-8ECF9915F7D2">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="584" y="129"/>
-<point x="652" y="129"/>
-<point x="652" y="110"/>
-<point x="790" y="110"/>
+<point x="584" y="73"/>
+<point x="708" y="73"/>
+<point x="708" y="54"/>
+<point x="790" y="54"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="A9437897-554D-CCCB-CE99-7095BC4EC193" otype="Relation" vid_source="681E8F2E-6A0B-C7EC-6837-150D47C00BE0" vid_target="7A5BD0C9-F1C2-E4AA-AECB-1DB43B4B4D8A">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="425" y="143"/>
-<point x="273" y="143"/>
-<point x="273" y="229"/>
-<point x="251" y="229"/>
+<point x="425" y="101"/>
+<point x="315" y="101"/>
+<point x="315" y="187"/>
+<point x="251" y="187"/>
 </points>
 </Connector>
 </connectors>

@@ -12,7 +12,10 @@ public interface UserDao
      
     void deleteUserByPesel(String pesel);
      
-    List<User> findAllUsers();
+    List<User> findAllUsers(int type);
  
     User findUserByPesel(String pesel);
+    
+    User findUserByUsername(String username);
+    
 }

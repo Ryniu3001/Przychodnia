@@ -16,7 +16,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
-<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Name" id="8B6BF1AA-E13F-1E5A-C045-2A3865D4033F">

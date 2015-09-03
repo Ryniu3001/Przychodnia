@@ -16,10 +16,9 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
-<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="User_ID" id="735874AC-10DE-94D8-B596-056122B70867">
+<Column name="User_data_ID" id="735874AC-10DE-94D8-B596-056122B70867">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>EEA07AB9-575C-90B0-63F7-2749BB398A01</generatorID>
@@ -34,7 +33,7 @@
 <colAssociation fkAssociation="08FF0A33-B587-E088-FA34-484A935BB02A" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
 </associations>
 </Column>
-<Column name="User_ID2" id="D1AEC77F-39F2-9C08-987B-62D8573757FB">
+<Column name="User_data_ID1" id="D1AEC77F-39F2-9C08-987B-62D8573757FB">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>E3E53EC7-D77E-FF79-F816-1BB1D5A0CBB7</generatorID>
@@ -95,7 +94,7 @@
 <colUsage columnID="D1AEC77F-39F2-9C08-987B-62D8573757FB"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="EEAB25F7-557E-4CF0-516F-492431E885C4" name="Visit_User_FK">
+<ind_PK_UK id="EEAB25F7-557E-4CF0-516F-492431E885C4" name="Visit_User_data_FK">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>41CDDB2E-78BC-E68F-A75A-7571B4755A8E</generatorID>
@@ -106,7 +105,7 @@
 <colUsage columnID="735874AC-10DE-94D8-B596-056122B70867"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C63FF803-1050-1539-118E-DAB04B2C136D" name="Visit_User_FKv2">
+<ind_PK_UK id="C63FF803-1050-1539-118E-DAB04B2C136D" name="Visit_User_data_FKv1">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>9B5A7281-367A-98DA-902E-D55C93ED5363</generatorID>

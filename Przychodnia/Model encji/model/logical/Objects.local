@@ -1,11 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="789A2424-0912-31A8-7C7A-5E18F1ED9AA9" name="Reg_notification" seqName="seg_0"/>
-   <object objectType="Entity" objectID="AD55972D-16D4-5265-4E2F-C63C4ACB1BE0" name="User" seqName="seg_0"/>
    <object objectType="Entity" objectID="E9611EB3-925D-7E64-9C26-F409AE9BEB7B" name="Clinic" seqName="seg_0"/>
+   <object objectType="Entity" objectID="789A2424-0912-31A8-7C7A-5E18F1ED9AA9" name="Reg_notification" seqName="seg_0"/>
+   <object objectType="Entity" objectID="AD55972D-16D4-5265-4E2F-C63C4ACB1BE0" name="User_data" seqName="seg_0"/>
    <object objectType="Entity" objectID="FF244E0F-E28B-9DA7-BCF3-F9319BC887D2" name="Visit" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A9437897-554D-CCCB-CE99-7095BC4EC193" name="Doctor_Clinic" seqName="seg_0"/>
    <object objectType="Relation" objectID="41CDDB2E-78BC-E68F-A75A-7571B4755A8E" name="Doctor_Visit" seqName="seg_0"/>
    <object objectType="Relation" objectID="9B5A7281-367A-98DA-902E-D55C93ED5363" name="Patient_Visist" seqName="seg_0"/>
    <object objectType="Relation" objectID="A7237CBE-6C0B-9A6D-58C7-8A68E3CB2D15" name="User_Notifiation" seqName="seg_0"/>
-   <object objectType="Relation" objectID="A9437897-554D-CCCB-CE99-7095BC4EC193" name="Doctor_Clinic" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>

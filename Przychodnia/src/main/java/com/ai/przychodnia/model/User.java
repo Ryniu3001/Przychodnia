@@ -5,41 +5,52 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
-@Table(name="USER")
+@Table(name="User_data")
 public class User
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator="user_seq_gen")
+	@SequenceGenerator(name="user_seq_gen", sequenceName="USER_DATA_ID_SEQ")
 	private int id;
 	
 	@Size(max=30)
-	@Column(name = "NAME", nullable = false)
+	@NotEmpty
+	@Column(name = "NAME")
 	private String name;
 	
 	@Size(max=30)
+	@NotEmpty
 	@Column(name = "SURNAME", nullable = false)
 	private String surname;
 	
-	@Size(max=11)
-	@Column(name = "PESEL", nullable = false, unique=true)
 	//TODO czy wpisywac unique constaint?
+	@Size(max=11)
+	@NotEmpty
+	@Column(name = "PESEL", nullable = false, unique=true)
 	private String pesel;
 	
 	@Size(max=15)
+	@NotEmpty
 	@Column(name = "CITY", nullable = false)
 	private String city;
 	
 	@Size(max=30)
+	@NotEmpty
 	@Column(name = "ZIP_code", nullable = false)
 	private String zip_code;
 	
 	@Size(max=4)
+	@NotEmpty
 	@Column(name = "HOUSE_NR", nullable = false)
 	private String house_nr;
 	
@@ -55,11 +66,17 @@ public class User
 	private String pwz;
 	
 	@Size(max=30)
+	@NotEmpty
 	@Column(name = "USERNAME", nullable = false)
 	private String username;
 	
 	@Column(name = "PASSWORD", nullable = false)
+	@NotEmpty
 	private String password;
+	
+	@Column(name = "IS_ENABLED", nullable = false)
+	private boolean is_enabled;
+	
 	
 	/* Setter and getters */
     public int getId() {
@@ -148,6 +165,14 @@ public class User
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean getIs_enabled() {
+		return is_enabled;
+	}
+
+	public void setIs_enabled(boolean is_enabled) {
+		this.is_enabled = is_enabled;
 	}
 
 	@Override

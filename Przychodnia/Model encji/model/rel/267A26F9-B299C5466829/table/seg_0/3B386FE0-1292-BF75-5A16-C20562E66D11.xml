@@ -16,7 +16,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
-<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Read" id="F0CCD997-DFF6-7BEF-FE29-1FE8EEFC6234">
@@ -30,7 +29,7 @@
 <dataTypeSize>1</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="User_ID" id="08267E54-B098-8A92-C1B2-90931240D60F">
+<Column name="User_data_ID" id="08267E54-B098-8A92-C1B2-90931240D60F">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>9ADDF8CA-6965-8C2F-B00E-CD1090CDCD2D</generatorID>
@@ -70,7 +69,7 @@
 <colUsage columnID="08267E54-B098-8A92-C1B2-90931240D60F"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C8CE28E8-E374-F6F8-7D88-DD9C0C341BF4" name="Reg_notification_User_FK">
+<ind_PK_UK id="C8CE28E8-E374-F6F8-7D88-DD9C0C341BF4" name="Reg_notification_User_data_FK">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>A7237CBE-6C0B-9A6D-58C7-8A68E3CB2D15</generatorID>
