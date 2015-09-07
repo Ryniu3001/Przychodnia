@@ -14,7 +14,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ai.przychodnia.dao.RegNotificationDao;
 import com.ai.przychodnia.dao.UserDao;
+import com.ai.przychodnia.model.Reg_notification;
 import com.ai.przychodnia.model.User;
 
 /**
@@ -26,7 +28,9 @@ import com.ai.przychodnia.model.User;
 public class UserServiceImpl implements UserService
 {
 	@Autowired
-	private UserDao dao; // TODO Usunac autowired i zobaczyc co sie stanie
+	private UserDao dao;
+	@Autowired
+	private RegNotificationDao notifyDao;
 
 	public User findById(int id) {
 		return dao.findById(id);
@@ -34,6 +38,7 @@ public class UserServiceImpl implements UserService
 
 	public void saveUser(User user) {
 		dao.saveUser(user);
+		notifyDao.newNotification(new Reg_notification(false,user));
 	}
 
 	public void updateUser(User user) {
@@ -86,6 +91,7 @@ public class UserServiceImpl implements UserService
 	 */
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
+		
 		User user = dao.findUserByUsername(username);
 		List<GrantedAuthority> authorities = buildUserAuthority(user.getType());
 		return buildUserForAuthentication(user, authorities);

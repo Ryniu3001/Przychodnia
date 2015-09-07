@@ -42,10 +42,10 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
     
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/login").setViewName("login");
+//        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+//    }
     
 }

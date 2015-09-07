@@ -5,9 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
 
@@ -33,7 +33,6 @@ public class User
 	@Column(name = "SURNAME", nullable = false)
 	private String surname;
 	
-	//TODO czy wpisywac unique constaint?
 	@Size(max=11)
 	@NotEmpty
 	@Column(name = "PESEL", nullable = false, unique=true)
@@ -44,7 +43,7 @@ public class User
 	@Column(name = "CITY", nullable = false)
 	private String city;
 	
-	@Size(max=30)
+	@Size(max=6)
 	@NotEmpty
 	@Column(name = "ZIP_code", nullable = false)
 	private String zip_code;
