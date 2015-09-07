@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: blue;
+	background-image: url("../images/background.jpg");
+	line-height: 0.7cm;
+}
+
+a {
+	font-size: 20px;
+	font-weight: bold;
+	color: maroon;
+}
+
+h2 {
+	letter-spacing: 1mm;
+}
+
+input[type=text], input[type=password] {
+	background-color: rgb(200, 200, 255);
+	border-radius: 8px;
+	 box-shadow:inset 0 0 2px #000;
+}
+
+input[type=submit]{
+	border-radius: 8px;
+}
