@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ai.przychodnia.helpers.SessionHelper;
 import com.ai.przychodnia.model.User;
 import com.ai.przychodnia.service.UserService;
 
@@ -30,11 +31,6 @@ public class MainController
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName(); 				//get logged in username
 	    User user = userService.findUserByUsername(name);
-	  
-	    Object principal = SecurityContextHolder.getContext()
-	    	     .getAuthentication().getPrincipal();
-	    HttpSession session = request.getSession(true);
-	    session.setAttribute("userDetails", principal);
 	    
 			if (user.getType() == 2)
 				return "redirect:/admin";

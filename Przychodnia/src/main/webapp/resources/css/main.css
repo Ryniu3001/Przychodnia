@@ -40,7 +40,14 @@ input[type=submit]{
 	
 }
 
+.delete{
+	background-image: url("../images/error.png");
+	width: 30px;
+	height: 30px;
+	display: block;
+}
 
+/* 
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:50%;
@@ -128,4 +135,4 @@ input[type=submit]{
 }
 .CSSTableGenerator tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
-}
+} */

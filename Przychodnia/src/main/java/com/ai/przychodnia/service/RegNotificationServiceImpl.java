@@ -1,5 +1,7 @@
 package com.ai.przychodnia.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +39,16 @@ public class RegNotificationServiceImpl implements RegNotificationService
 	@Override
 	public void deleteNotification(Reg_notification notification) {
 		dao.deleteNotification(notification);
+	}
+
+	@Override
+	public List<Reg_notification> findNewNotifications() {
+		return dao.findNewNotifications();
+	}
+
+	@Override
+	public List<Reg_notification> findAllNotifications() {
+		return dao.findAllNotifications();
 	}
 
 }

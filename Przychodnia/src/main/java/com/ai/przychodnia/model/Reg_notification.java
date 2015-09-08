@@ -24,6 +24,8 @@ public class Reg_notification
 	@JoinColumn(name="USER_ID") 
 	private User user_id;
 
+	public Reg_notification(){}
+	
 	public Reg_notification(boolean read, User user_id)
 	{
 		this.read = read;

@@ -15,8 +15,9 @@
 <h2>Choose operation:</h2>
 	<div id="list">
 		<ul>
-			<li><a href="admin/patients"><span>Patients list</span></a></li>
-			<li><a href="admin/doctors"><span>Doctor lists</span></a></li>
+			<li><a href="admin/notifications">Notifications</a></li>
+			<li><a href="admin/patients">Patients list</a></li>
+			<li><a href="admin/doctors">Doctor lists</a></li>
 		</ul>
 	</div>
 </body>

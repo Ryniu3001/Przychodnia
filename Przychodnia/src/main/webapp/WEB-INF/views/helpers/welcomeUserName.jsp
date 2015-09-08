@@ -24,7 +24,7 @@
 		<c:url value="/logout" var="logoutUrl" />
 
 		Welcome, <span style="color: silver;">${pageContext.request.userPrincipal.name}</span>
-		<br /> <a href="user/edit-${userDetails.username}-user"> Profile</a> <a
+		<br /> <a href="<c:url value="/user/edit-${pageContext.request.userPrincipal.name}-user" /> "> Profile</a> <a
 			href="javascript:formSubmit()"> Logout</a>
 
 		<!-- csrt support -->

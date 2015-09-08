@@ -1,5 +1,7 @@
 package com.ai.przychodnia.service;
 
+import java.util.List;
+
 import com.ai.przychodnia.model.Reg_notification;
 
 public interface RegNotificationService
@@ -13,4 +15,8 @@ public interface RegNotificationService
 	Reg_notification findVisitById(int id);
 	
 	void deleteNotification(Reg_notification notification);
+	
+	List<Reg_notification> findNewNotifications();
+	
+	List<Reg_notification> findAllNotifications();
 }

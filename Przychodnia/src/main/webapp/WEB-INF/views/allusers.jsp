@@ -57,6 +57,7 @@ tr:first-child {
 	</div>
 	<br />
 <%-- 	<input type="text" name="type" value="${type}" /> --%>
-	<a href="<c:url value='/user/new-doctor' />">Add new ${type}</a>
+	<a href="<c:url value='/user/new-1' />">Add new doctor</a><br/>
+	<a href="<c:url value='/user/new-2' />">Add new administrator</a>
 </body>
 </html>

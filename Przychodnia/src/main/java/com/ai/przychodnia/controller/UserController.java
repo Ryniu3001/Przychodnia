@@ -102,7 +102,7 @@ public class UserController
 		SecurityContextHolder.getContext().setAuthentication(auth);
 		redirectAttributes.addAttribute("success", "You have successfully registered and logged in.");
 		
-		return("redirect:/user/");
+		return("redirect:/user");
 		
 	}
 
