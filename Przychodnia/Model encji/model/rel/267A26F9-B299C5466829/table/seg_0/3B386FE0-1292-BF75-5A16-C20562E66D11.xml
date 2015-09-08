@@ -6,6 +6,7 @@
 <ownerDesignName>model</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
 <Column name="ID" id="492AB3F3-D130-648C-2E2A-C28473DFF236">
 <createdBy>Marcin</createdBy>
@@ -15,6 +16,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -27,9 +29,10 @@
 <use>1</use>
 <logicalDatatype>LOGDT006</logicalDatatype>
 <dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="User_data_ID" id="08267E54-B098-8A92-C1B2-90931240D60F">
+<Column name="User_ID" id="08267E54-B098-8A92-C1B2-90931240D60F">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>9ADDF8CA-6965-8C2F-B00E-CD1090CDCD2D</generatorID>
@@ -37,7 +40,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>

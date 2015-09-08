@@ -6,6 +6,7 @@
 <ownerDesignName>model</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
 <Column name="ID" id="AC84F9C4-BDE3-99CA-7E56-DD9F5F93002F">
 <createdBy>Marcin</createdBy>
@@ -15,10 +16,11 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementColumn>true</autoIncrementColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="User_data_ID" id="735874AC-10DE-94D8-B596-056122B70867">
+<Column name="doctor" id="735874AC-10DE-94D8-B596-056122B70867">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>EEA07AB9-575C-90B0-63F7-2749BB398A01</generatorID>
@@ -26,14 +28,14 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="08FF0A33-B587-E088-FA34-484A935BB02A" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
 </associations>
 </Column>
-<Column name="User_data_ID1" id="D1AEC77F-39F2-9C08-987B-62D8573757FB">
+<Column name="patient" id="D1AEC77F-39F2-9C08-987B-62D8573757FB">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>E3E53EC7-D77E-FF79-F816-1BB1D5A0CBB7</generatorID>
@@ -41,14 +43,14 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>F2841BDB-19CE-F31E-7A65-77DC6E155357</delegate>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="E87F967C-EBF0-6185-D5AE-CC3F77F32995" referredColumn="F2841BDB-19CE-F31E-7A65-77DC6E155357"/>
 </associations>
 </Column>
-<Column name="Date" id="0ADFFC51-9D47-089E-E067-AADBE6282A68">
+<Column name="Date_s" id="0ADFFC51-9D47-089E-E067-AADBE6282A68">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:28:04 UTC</createdTime>
 <generatorID>CC7B842C-E3C6-18AB-DAFD-99D0F4A7C19E</generatorID>
@@ -56,6 +58,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
@@ -105,7 +108,7 @@
 <colUsage columnID="735874AC-10DE-94D8-B596-056122B70867"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C63FF803-1050-1539-118E-DAB04B2C136D" name="Visit_User_data_FKv1">
+<ind_PK_UK id="C63FF803-1050-1539-118E-DAB04B2C136D" name="Visit_User_data_FKv2">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:08:57 UTC</createdTime>
 <generatorID>9B5A7281-367A-98DA-902E-D55C93ED5363</generatorID>

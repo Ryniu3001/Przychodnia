@@ -2,6 +2,9 @@ package com.ai.przychodnia.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,15 +26,20 @@ public class MainController
 	UserService userService;
 	
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String userMain(ModelMap model) {
+	public String rootPage(ModelMap model, HttpServletRequest request) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName(); 				//get logged in username
 	    User user = userService.findUserByUsername(name);
+	  
+	    Object principal = SecurityContextHolder.getContext()
+	    	     .getAuthentication().getPrincipal();
+	    HttpSession session = request.getSession(true);
+	    session.setAttribute("userDetails", principal);
 	    
 			if (user.getType() == 2)
 				return "redirect:/admin";
 			else if (user.getType() == 0)
-				return "redirect:/";
+				return "redirect:/user";
 			else if (user.getType() == 1)
 				return"redirect:/doctor";
 	    
@@ -41,13 +49,23 @@ public class MainController
 	
 	@RequestMapping(value = { "/admin" }, method = RequestMethod.GET)
 	public String adminMain(ModelMap model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+/*		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName(); 				//get logged in username
 	    User user = userService.findUserByUsername(name);
-	    model.addAttribute("username", user.getUsername());
+	    model.addAttribute("username", user.getUsername());*/
 		return "adminMainView";
 	}
+	
+	@RequestMapping(value = { "/user" }, method = RequestMethod.GET)
+	public String userMain(ModelMap model) {
+/*		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); 				//get logged in username
+	    User user = userService.findUserByUsername(name);
+	    model.addAttribute("username", user.getUsername());*/
+		return "userMainView";
+	}
 
+	//TODO Usunac
 	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 

@@ -68,7 +68,7 @@
 				</tr>
 				<tr>
 					<td colspan='2'>If you don't have an account <a
-						href="<c:url value='/users/new-patient' />">Register</a></td>
+						href="<c:url value='/user/new-0' />">Register</a></td>
 				</tr>
 			</table>
 

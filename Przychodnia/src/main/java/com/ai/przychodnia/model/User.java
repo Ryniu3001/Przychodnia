@@ -5,10 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -35,6 +35,7 @@ public class User
 	
 	@Size(max=11)
 	@NotEmpty
+	@Digits(integer=11, fraction=0)
 	@Column(name = "PESEL", nullable = false, unique=true)
 	private String pesel;
 	
@@ -45,6 +46,7 @@ public class User
 	
 	@Size(max=6)
 	@NotEmpty
+	@Pattern(regexp="[0-9]{2}-[0-9]{3}", message="Wrong zip!")
 	@Column(name = "ZIP_code", nullable = false)
 	private String zip_code;
 	

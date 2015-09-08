@@ -3,8 +3,9 @@
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 21:21:36 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -19,12 +20,14 @@
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 21:58:23 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ID1" id="EEA07AB9-575C-90B0-63F7-2749BB398A01">
 <createdBy>Marcin</createdBy>
@@ -38,6 +41,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ID2" id="E3E53EC7-D77E-FF79-F816-1BB1D5A0CBB7">
 <createdBy>Marcin</createdBy>
@@ -51,17 +55,20 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Date" id="CC7B842C-E3C6-18AB-DAFD-99D0F4A7C19E">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 22:27:43 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

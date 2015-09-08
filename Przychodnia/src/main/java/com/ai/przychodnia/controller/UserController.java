@@ -1,15 +1,19 @@
 package com.ai.przychodnia.controller;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpRequest;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -17,6 +21,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ai.przychodnia.model.User;
 import com.ai.przychodnia.service.UserService;
@@ -32,10 +37,13 @@ public class UserController
 	@Autowired
 	MessageSource messageSource;
 	
-	@RequestMapping(value = { "/new-patient", "/new-doctor" }, method = RequestMethod.GET)
-	public String newPatient(ModelMap model) {
-
+	@RequestMapping(value = { "/new-{type}" }, method = RequestMethod.GET)
+	public String newPatient(@PathVariable int type, ModelMap model) {
 		User user = new User();
+		if (type >=0 && type<=2)
+			user.setType(type);
+		else
+			return null;
 		user.setType(0);
 		user.setIs_enabled(false);
 		model.addAttribute("user", user);
@@ -47,10 +55,11 @@ public class UserController
 	 * This method will be called on form submission, handling POST request for
 	 * saving user in database. It also validates the user input
 	 */
-	@RequestMapping(value = { "/new-patient", "/new-doctor" }, method = RequestMethod.POST)
-	public String saveUser(@Valid User user, BindingResult result,
-			ModelMap model) {
-
+	//@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/new-{type}" }, method = RequestMethod.POST)
+	public String saveUser(@PathVariable int type, @Valid User user, BindingResult result,
+			/*ModelMap model,*/ final RedirectAttributes redirectAttributes) {
+		
 		if (result.hasErrors()) {
 			return "userRegistration";
 		}
@@ -67,7 +76,7 @@ public class UserController
 					new Object[] { user.getUsername() }, "Undefined message");
 			return "userRegistration";
 		}
-
+		
 		try {
 			service.saveUser(user);
 		} catch (DataIntegrityViolationException e) {
@@ -82,10 +91,19 @@ public class UserController
 			return "userRegistration";
 		}
 
-		model.addAttribute("success",
+		/*model.addAttribute("success",
 				"User " + user.getName() + " " + user.getSurname()
-						+ " registered successfully");
-		return "success";
+						+ " registered successfully");*/
+		
+		/* Automatyczne logowanie po rejestracji */ 
+		UserDetails userDetails = service.loadUserByUsername(user.getUsername());
+		Authentication auth = new UsernamePasswordAuthenticationToken(
+				userDetails.getUsername (),userDetails.getPassword (),userDetails.getAuthorities ());
+		SecurityContextHolder.getContext().setAuthentication(auth);
+		redirectAttributes.addAttribute("success", "You have successfully registered and logged in.");
+		
+		return("redirect:/user/");
+		
 	}
 
 	/*
@@ -123,9 +141,10 @@ public class UserController
 	 * This method will delete an user by it's pesel value.
 	 */
 	@RequestMapping(value = { "/delete-{pesel}-user" }, method = RequestMethod.GET)
-	public String deleteUser(@PathVariable String pesel) {
+	public String deleteUser(@PathVariable String pesel, RedirectAttributes redirectAttributes) {
 		service.deleteUserByPesel(pesel);
-		return "redirect:/patients";
+		redirectAttributes.addAttribute("success", "The item was deleted.");
+		return "redirect:/admin/patients";
 	}
 
 }

@@ -3,8 +3,9 @@
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 21:18:57 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -19,24 +20,28 @@
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 21:43:42 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Read" id="34107022-47A7-5CD6-73D5-CBCBC4B9B8D3">
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 21:45:04 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT006</logicalDatatype>
 <dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ID1" id="9ADDF8CA-6965-8C2F-B00E-CD1090CDCD2D">
 <createdBy>Marcin</createdBy>
@@ -50,6 +55,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

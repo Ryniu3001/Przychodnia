@@ -25,6 +25,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Name" id="59C82FFC-1B8F-EA23-CDE7-046E6754175A">
 <createdBy>Marcin</createdBy>
@@ -37,6 +38,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Surname" id="98147D64-52FB-DBD3-7003-FF320D07D4BA">
 <createdBy>Marcin</createdBy>
@@ -49,6 +51,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Pesel" id="5AB2E114-4E36-1137-1CCC-AE8079BBFAD4">
 <createdBy>Marcin</createdBy>
@@ -61,6 +64,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="City" id="C3BCEE3C-9C74-CDC8-10C4-C408B56E9730">
 <createdBy>Marcin</createdBy>
@@ -73,6 +77,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ZIP_code" id="F5BEE27B-361D-36D2-2882-18B0EC0BB260">
 <createdBy>Marcin</createdBy>
@@ -85,6 +90,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="house_nr" id="F26BCAAD-9123-80FE-2E48-7E971005F033">
 <createdBy>Marcin</createdBy>
@@ -97,6 +103,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Type" id="ECEE1E1D-B992-4CA7-9474-E5799B7B81EA">
 <createdBy>Marcin</createdBy>
@@ -108,6 +115,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="PWZ" id="6C7D3DC3-C8B7-71B8-483F-4B29A66DC58E">
 <createdBy>Marcin</createdBy>
@@ -121,6 +129,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Username" id="DB55C5F2-46A9-CE19-3AC4-2CAC84F497E7">
 <createdBy>Marcin</createdBy>
@@ -133,6 +142,7 @@
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Password" id="71F50E5B-2AB0-BA30-0310-860F3142D617">
 <createdBy>Marcin</createdBy>
@@ -144,6 +154,21 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="is_enabled" id="2DF180E3-091E-64BA-808D-568FA4BCDEB4">
+<createdBy>mryniec</createdBy>
+<createdTime>2015-09-08 09:10:41 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -151,8 +176,9 @@
 <createdBy>Marcin</createdBy>
 <createdTime>2015-08-28 21:28:37 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="267A26F9-4B84-D434-7070-B299C5466829" value="true"/>
+<item key="267A26F9-4B84-D434-7070-B299C5466829" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
