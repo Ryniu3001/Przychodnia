@@ -1,10 +1,15 @@
 package com.ai.przychodnia.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
@@ -77,6 +82,9 @@ public class User
 	
 	@Column(name = "IS_ENABLED", nullable = false)
 	private boolean is_enabled;
+	
+//	@OneToMany(mappedBy = "pk.doctor", cascade=CascadeType.ALL)
+//	private Set<Doctor_Clinic> doctorsInClinic = new HashSet<Doctor_Clinic>(0);
 	
 	
 	/* Setter and getters */
@@ -175,6 +183,15 @@ public class User
 	public void setIs_enabled(boolean is_enabled) {
 		this.is_enabled = is_enabled;
 	}
+	
+
+//	public Set<Doctor_Clinic> getDoctorsInClinic() {
+//		return doctorsInClinic;
+//	}
+//
+//	public void setDoctorsInClinic(Set<Doctor_Clinic> doctorsInClinic) {
+//		this.doctorsInClinic = doctorsInClinic;
+//	}
 
 	@Override
     public int hashCode() {
@@ -206,7 +223,6 @@ public class User
     
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + ", surname="
-                + surname + ", type=" + type + " ]";
+        return getSurname() + " " + getName() + " " + getPesel();
     }
 }

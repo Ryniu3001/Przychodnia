@@ -36,7 +36,6 @@
 	<h2>Registration Form</h2>
 
 	<form:errors path="user" class="errorBlock" />
-
 	<form:form method="POST" modelAttribute="user">
 
 		<form:input type="hidden" path="id" id="id" />
@@ -89,15 +88,7 @@
 				<td><form:input path="password" id="password" /></td>
 				<td><form:errors path="password" cssClass="error" /></td>
 			</tr>
-			<c:choose>
-				<c:when test="!${edit}">
-					<tr>
-						<td><label for="ssn">Account Type: </label></td>
-						<td><form:input path="type" id="type" /></td>
-						<td><form:errors path="type" cssClass="error" /></td>
-					</tr>
-				</c:when>
-			</c:choose>
+
 			<tr>
 				<td colspan="3"><c:choose>
 						<c:when test="${edit}">

@@ -11,13 +11,15 @@
 </head>
 <body>
 <h2 id="welcomeUser"><%@include file="helpers/welcomeUserName.jsp" %></h2>
-
+<h2 class="success"><c:out value="${param['success']}" /></h2>
 <h2>Choose operation:</h2>
 	<div id="list">
 		<ul>
-			<li><a href="admin/notifications">Notifications</a></li>
-			<li><a href="admin/patients">Patients list</a></li>
-			<li><a href="admin/doctors">Doctor lists</a></li>
+			<li><a href="<c:url value='/admin/notifications/' />">Notifications</a></li>
+			<li><a href="<c:url value='/admin/clinics/' />">Clinics</a></li>
+			<li><a href="<c:url value='/admin/patients/' />">Patients list</a></li>
+			<li><a href="<c:url value='/admin/doctors/' />">Doctor lists</a></li>
+			<li><a href="<c:url value='/admin/clinics/assign/' />">add Doctor to Clinic</a></li>
 		</ul>
 	</div>
 </body>

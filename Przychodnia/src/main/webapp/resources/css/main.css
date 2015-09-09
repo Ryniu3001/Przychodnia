@@ -11,14 +11,15 @@ body {
 }
 
 a {
-	font-size: 20px;
+/* 	font-size: 5px; */
 	font-weight: bold;
-	color: #1707A2;
+	color: #830095;
+	letter-spacing: 0.5mm;
 }
 
-a:visited { 
-    background-color: yellow;
-}
+/* a:visited {  */
+/*     color: ; */
+/* } */
 
 h2 {
 	letter-spacing: 1mm;
@@ -42,12 +43,29 @@ input[type=submit]{
 
 .delete{
 	background-image: url("../images/error.png");
-	width: 30px;
-	height: 30px;
-	display: block;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 20px;
+	display:block;
+    height:20px;
+    width:100px;
+
 }
 
-/* 
+.error {
+	color: #C90000;
+	font-weight: bold;
+}
+
+div.editClinic {
+	float: left;
+	width: auto;
+	margin-right: 100px;
+}
+
+div.clinicDoctors {
+	width: auto;
+}
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:50%;
@@ -135,4 +153,4 @@ input[type=submit]{
 }
 .CSSTableGenerator tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
-} */
+}

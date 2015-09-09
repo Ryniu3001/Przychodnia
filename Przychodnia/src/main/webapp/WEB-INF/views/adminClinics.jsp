@@ -19,7 +19,7 @@
  });
  </script>
 
-<title>List</title>
+<title>List of Clinics</title>
 
 <style>
 tr:first-child {
@@ -32,24 +32,17 @@ tr:first-child {
 <body>
 	<h2><%@include file="helpers/welcomeUserName.jsp"%></h2>
 	<h2 class="success"><c:out value="${param['success']}" /></h2>
-	<h2>List of ${type}s</h2>
-	<div class="CSSTableGenerator">
+	<h2>List of Clinics</h2>
+	<div class="CSSTableGenerator" style="width: 400px;">
 	<table>
 		<tr>
-			<td>NAME</td>
-			<td>Surname</td>
-			<td>Pesel</td>
-			<td>SSN</td>
-			<td></td>
+			<td>Clinic Name</td>
+			<td/>
 		</tr>
-		<c:forEach items="${users}" var="user">
+		<c:forEach items="${clinics}" var="clinic">
 			<tr>
-				<td><a
-					href="<c:url value='/user/edit-${user.username}-user' />">${user.username}</a></td>
-				<td>${user.surname}</td>
-				<td>${user.city}</td>
-				<td>${user.pesel}</td>
-				<td><a href="<c:url value='/user/delete-${user.pesel}-user' />" class="delete">delete</a></td>
+				<td width="300px"><a href="<c:url value='/admin/clinics/edit-${clinic.id}-${clinic.name}-clinic' />">${clinic.name}</a></td>
+				<td width="100px"><a href="<c:url value='/admin/clinics/delete-${clinic.id}-${clinic.name}-clinic' />" class="delete"></a></td>
 				
 			</tr>
 		</c:forEach>
@@ -61,5 +54,6 @@ tr:first-child {
 	<a href="<c:url value='/admin/clinics/new-clinic' />">Add new clinic</a>
 	<br/><br/>
 	<a href="<c:url value='/admin/' />">Back to Main Page</a>
+	
 </body>
 </html>

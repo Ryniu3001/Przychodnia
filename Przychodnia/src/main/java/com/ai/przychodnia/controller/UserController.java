@@ -3,15 +3,14 @@ package com.ai.przychodnia.controller;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ai.przychodnia.helpers.Type;
 import com.ai.przychodnia.model.User;
 import com.ai.przychodnia.service.UserService;
 
@@ -63,19 +63,9 @@ public class UserController
 		if (result.hasErrors()) {
 			return "userRegistration";
 		}
-		/* Check if pesel is unique */
-		if (!service.isUserPeselUnique(user.getId(), user.getPesel())) {
-			result.rejectValue("pesel", "non.unique.pesel",
-					new Object[] { user.getPesel() }, "Undefined message");
+		
+		if (!PeselUsernameUnique(result, user))
 			return "userRegistration";
-		}
-
-		/* Check if username is unique */
-		if (!service.isUsernameUnique(user.getId(), user.getUsername())) {
-			result.rejectValue("username", "non.unique.username",
-					new Object[] { user.getUsername() }, "Undefined message");
-			return "userRegistration";
-		}
 		
 		try {
 			service.saveUser(user);
@@ -95,14 +85,18 @@ public class UserController
 				"User " + user.getName() + " " + user.getSurname()
 						+ " registered successfully");*/
 		
-		/* Automatyczne logowanie po rejestracji */ 
-		UserDetails userDetails = service.loadUserByUsername(user.getUsername());
-		Authentication auth = new UsernamePasswordAuthenticationToken(
-				userDetails.getUsername (),userDetails.getPassword (),userDetails.getAuthorities ());
-		SecurityContextHolder.getContext().setAuthentication(auth);
-		redirectAttributes.addAttribute("success", "You have successfully registered and logged in.");
-		
-		return("redirect:/user");
+		/* Automatyczne logowanie po rejestracji pacjenta*/ 
+		if (type == 0) {
+			UserDetails userDetails = service.loadUserByUsername(user.getUsername());
+			Authentication auth = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(),
+					userDetails.getAuthorities());
+			SecurityContextHolder.getContext().setAuthentication(auth);
+			redirectAttributes.addAttribute("success", "You have successfully registered and logged in.");
+			return("redirect:/user");
+		}else{		
+			redirectAttributes.addAttribute("success", "New doctor is registered.");
+			return("redirect:/admin");
+		}
 		
 	}
 
@@ -123,18 +117,33 @@ public class UserController
 	 */
 	@RequestMapping(value = { "/edit-{username}-user" }, method = RequestMethod.POST)
 	public String updateUser(@Valid User user, BindingResult result,
-			ModelMap model) {
+			ModelMap model, HttpServletRequest request) {
 
 		if (result.hasErrors()) {
 			return "userRegistration";
 		}
-
-		service.updateUser(user);
+		
+		if (!PeselUsernameUnique(result, user))
+			return "userRegistration";
+		
+		try {
+			service.updateUser(user);
+		} catch (DataIntegrityViolationException e) {
+			/*
+			 * Na wypadek gdyby dwie sejse stweirdzily ze nie naruszaja
+			 * unikalnosci
+			 */
+			ObjectError err = new ObjectError("user", messageSource.getMessage(
+					"unique.user.nuerror", null, Locale.getDefault()));
+			result.addError(err);
+			user.setId(0);
+			return "userRegistration";
+		}
 
 		model.addAttribute("success",
 				"User " + user.getName() + " " + user.getSurname()
 						+ " updated successfully");
-		return "success";
+		return "redirect:/admin";
 	}
 
 	/*
@@ -145,6 +154,25 @@ public class UserController
 		service.deleteUserByPesel(pesel);
 		redirectAttributes.addAttribute("success", "The item was deleted.");
 		return "redirect:/admin/patients";
+	}
+	
+	private boolean PeselUsernameUnique(BindingResult result, User user) {
+		boolean ret = true;
+		
+		/* Check if pesel is unique */
+		if (!service.isUserPeselUnique(user.getId(), user.getPesel())) {
+			result.rejectValue("pesel", "non.unique.pesel",
+					new Object[] { user.getPesel() }, "Undefined message");
+			ret = false;
+		}
+
+		/* Check if username is unique */
+		if (!service.isUsernameUnique(user.getId(), user.getUsername())) {
+			result.rejectValue("username", "non.unique.username",
+					new Object[] { user.getUsername() }, "Undefined message");
+			ret = false;
+		}
+		return ret;
 	}
 
 }
