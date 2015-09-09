@@ -42,7 +42,7 @@ tr:first-child {
 		<c:forEach items="${clinics}" var="clinic">
 			<tr>
 				<td width="300px"><a href="<c:url value='/admin/clinics/edit-${clinic.id}-${clinic.name}-clinic' />">${clinic.name}</a></td>
-				<td width="100px"><a href="<c:url value='/admin/clinics/delete-${clinic.id}-${clinic.name}-clinic' />" class="delete"></a></td>
+				<td class="remove"><a href="<c:url value='/admin/clinics/delete-${clinic.id}-${clinic.name}-clinic' />" class="delete"></a></td>
 				
 			</tr>
 		</c:forEach>

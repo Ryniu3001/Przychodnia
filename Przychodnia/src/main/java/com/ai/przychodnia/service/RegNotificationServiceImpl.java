@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ai.przychodnia.dao.RegNotificationDao;
+import com.ai.przychodnia.dao.UserDao;
 import com.ai.przychodnia.model.Reg_notification;
 
 @Service
@@ -15,6 +16,9 @@ public class RegNotificationServiceImpl implements RegNotificationService
 {
 	@Autowired
 	private RegNotificationDao dao;
+	
+	@Autowired
+	private UserDao userDao;
 
 	@Override
 	public Reg_notification findById(int id) {
@@ -27,7 +31,8 @@ public class RegNotificationServiceImpl implements RegNotificationService
 	}
 
 	@Override
-	public void deleteNotificationById(int id) {
+	public void deleteNotificationById(int id, String pesel) {
+		userDao.deleteUserByPesel(pesel);
 		dao.deleteNotificationById(id);
 	}
 
@@ -49,6 +54,12 @@ public class RegNotificationServiceImpl implements RegNotificationService
 	@Override
 	public List<Reg_notification> findAllNotifications() {
 		return dao.findAllNotifications();
+	}
+
+	@Override
+	public int countNewNotifications() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -3,9 +3,15 @@ package com.ai.przychodnia.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.criterion.CriteriaQuery;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.engine.spi.TypedValue;
 import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.model.Reg_notification;
@@ -53,6 +59,14 @@ public class RegNotificationDaoImpl extends AbstractDao<Integer, Reg_notificatio
 		Criteria criteria = createEntityCriteria();
 		criteria.addOrder(Order.desc("read"));
 		return (List<Reg_notification>) criteria.list();
+	}
+
+	@Override
+	public int countNewNotifications() {
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("read", false));
+		criteria.setProjection(Projections.rowCount());
+		return (int)criteria.uniqueResult();
 	}
 
 }

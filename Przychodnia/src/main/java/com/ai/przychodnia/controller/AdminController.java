@@ -3,6 +3,7 @@ package com.ai.przychodnia.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.management.Notification;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -59,17 +60,21 @@ public class AdminController
 		return "allusers";
 	}
 	
+	/*******************************************************************************/
+	/********************************* NOTIFICATION ********************************/
+	/*******************************************************************************/
+	
 	@RequestMapping(value = {"/notifications" }, method = RequestMethod.GET)
 	public String notificationList(ModelMap model) {
-		List<Reg_notification> notifications = notifyService.findAllNotifications();
+		List<Reg_notification> notifications = notifyService.findNewNotifications();
 		model.addAttribute("notifications", notifications);
 		return "adminNotifications";
 	}
 	
-	@RequestMapping(value = {"/delete-{id}-notification" }, method = RequestMethod.GET)
-	public String deleteNotification(@PathVariable int id, ModelMap model) {
-		notifyService.deleteNotificationById(id);
-		model.addAttribute("success", "The item was deleted.");
+	@RequestMapping(value = {"/delete-{id}-{pesel}-notification" }, method = RequestMethod.GET)
+	public String deleteNotification(@PathVariable int id, @PathVariable String pesel, ModelMap model) {
+		notifyService.deleteNotificationById(id,pesel);
+		model.addAttribute("success", "The notification and user was deleted.");
 		return "redirect:/admin/notifications";
 	}
 	

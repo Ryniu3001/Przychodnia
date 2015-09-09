@@ -10,7 +10,7 @@ public interface RegNotificationService
 
 	void newNotification(Reg_notification notification);
 
-	void deleteNotificationById(int id);
+	void deleteNotificationById(int id, String pesel);
 
 	Reg_notification findVisitById(int id);
 	
@@ -19,4 +19,6 @@ public interface RegNotificationService
 	List<Reg_notification> findNewNotifications();
 	
 	List<Reg_notification> findAllNotifications();
+	
+	int countNewNotifications();
 }

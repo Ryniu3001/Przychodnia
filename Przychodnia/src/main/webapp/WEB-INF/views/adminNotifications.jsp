@@ -10,7 +10,7 @@
  $(document).ready(function () {
 	 $('.delete').click(function(event) {
 		    event.preventDefault();
-		    var r=confirm("Are you sure you want to delete?");
+		    var r=confirm("Are you sure you want to delete user and notification?");
 		    if (r==true)   {  
 		       window.location = $(this).attr('href');
 		    }
@@ -29,15 +29,15 @@
 	<div class="CSSTableGenerator">
 	<table>
 		<tr>
-			<td>ACCEPTED</td>
-			<td>USER</td>
+			<td>Accepted</td>
+			<td>User</td>
+			<td>Remove</td>
 		</tr>
 		<c:forEach items="${notifications}" var="notify">
 			<tr>
-				<td>${notify.read}</td>
+				<td id="notifyRead">${notify.read}</td>
 				<td>${notify.user_id.surname} ${notify.user_id.name} ${notify.user_id.pesel}</td>
-				<td><a href="<c:url value='/admin/delete-${notify.id}-notification' />" class="delete">
-				<img src="<c:url value='/resources/images/error.png' />" alt="Delete" /></a></td>			
+				<td class="remove"><a href="<c:url value='/admin/delete-${notify.id}-${notify.user_id.pesel}-notification' />" class="delete"></a></td>			
 			</tr>
 		</c:forEach>
 	</table>

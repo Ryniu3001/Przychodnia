@@ -66,6 +66,16 @@ div.editClinic {
 div.clinicDoctors {
 	width: auto;
 }
+
+td.remove{
+	width: 100px;
+}
+
+td#notifyRead{
+	width: 100px;
+	text-align: center;
+}
+
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:50%;

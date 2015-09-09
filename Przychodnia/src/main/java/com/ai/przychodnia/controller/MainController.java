@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ai.przychodnia.model.User;
+import com.ai.przychodnia.service.RegNotificationService;
 import com.ai.przychodnia.service.UserService;
 
 @Controller
@@ -21,6 +22,9 @@ public class MainController
 {
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	RegNotificationService notifyService;
 	
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String rootPage(ModelMap model, HttpServletRequest request) {
@@ -45,6 +49,7 @@ public class MainController
 	    String name = auth.getName(); 				//get logged in username
 	    User user = userService.findUserByUsername(name);
 	    model.addAttribute("username", user.getUsername());*/
+		
 		return "adminMainView";
 	}
 	
