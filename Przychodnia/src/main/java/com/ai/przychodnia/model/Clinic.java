@@ -54,9 +54,9 @@ public class Clinic {
 		this.doctorsInClinic = doctorsInClinic;
 	}
 	
-//	@Override
-//	public String toString(){
-//		return this.getName();
-//	}
+	@Override
+	public String toString(){
+		return this.getName();
+	}
 		
 }

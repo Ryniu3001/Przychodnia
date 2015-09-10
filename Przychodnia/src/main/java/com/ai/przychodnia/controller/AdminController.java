@@ -71,12 +71,20 @@ public class AdminController
 		return "adminNotifications";
 	}
 	
-	@RequestMapping(value = {"/delete-{id}-{pesel}-notification" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/delete-{id}-{pesel}-notification" }, method = RequestMethod.POST)
 	public String deleteNotification(@PathVariable int id, @PathVariable String pesel, ModelMap model) {
 		notifyService.deleteNotificationById(id,pesel);
 		model.addAttribute("success", "The notification and user was deleted.");
 		return "redirect:/admin/notifications";
 	}
+	
+	@RequestMapping(value = {"/accept-{id}-{pesel}-notification" }, method = RequestMethod.POST)
+	public String acceptNotification(@PathVariable int id, @PathVariable String pesel, ModelMap model) {
+		notifyService.deleteNotificationById(id,pesel);
+		model.addAttribute("success", "The notification and user was deleted.");
+		return "redirect:/admin/notifications";
+	}
+	
 	
 	/*******************************************************************************/
 	/*********************************** CLINICS ***********************************/
@@ -159,10 +167,9 @@ public class AdminController
 	}
 	
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.POST)
-	public String saveAssign(@Valid Doctor_Clinic assigns, BindingResult result,ModelMap model) {
-		List<Clinic> clinics = clinicService.findAllClinics();
-		List<User> doctors = service.findAllUsers(1);
-		model.addAttribute("clinics", clinics);
+	public String saveAssign(@Valid Doctor_Clinic assigns, BindingResult result,ModelMap model, HttpServletRequest request) {
+		String[] days = request.getParameterValues("days");
+		
 		model.addAttribute("doctors", doctors);
 		return "adminDoctorsClinic";
 	}

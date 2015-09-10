@@ -57,9 +57,15 @@ public class RegNotificationServiceImpl implements RegNotificationService
 	}
 
 	@Override
-	public int countNewNotifications() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countNewNotifications() {
+		return dao.countNewNotifications();
+	}
+
+	@Override
+	public void setNotificationState(int id, boolean state) {
+		Reg_notification notification = dao.findById(id);
+		if (notification != null)
+			notification.setRead(state);		
 	}
 
 }

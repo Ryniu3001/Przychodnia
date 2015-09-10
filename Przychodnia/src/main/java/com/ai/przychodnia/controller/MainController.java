@@ -49,7 +49,8 @@ public class MainController
 	    String name = auth.getName(); 				//get logged in username
 	    User user = userService.findUserByUsername(name);
 	    model.addAttribute("username", user.getUsername());*/
-		
+		long count = notifyService.countNewNotifications();
+		model.addAttribute("count", count);
 		return "adminMainView";
 	}
 	

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 <script src="<c:url value="/resources/jquery/jquery-1.11.3.js" />" ></script>
@@ -29,15 +30,20 @@
 	<div class="CSSTableGenerator">
 	<table>
 		<tr>
-			<td>Accepted</td>
+			<td>Accept</td>
 			<td>User</td>
 			<td>Remove</td>
 		</tr>
 		<c:forEach items="${notifications}" var="notify">
 			<tr>
-				<td id="notifyRead">${notify.read}</td>
+				<c:url var="deleteUrl" value="/admin/delete-${notify.id}-${notify.user_id.pesel}-notification"/> 
+				<td id="notifyAccept"><a href="<c:url value='/admin/accept-${notify.id}-${notify.user_id.pesel}-notification' />" id="acceptNotify">Accept</a></td>
 				<td>${notify.user_id.surname} ${notify.user_id.name} ${notify.user_id.pesel}</td>
-				<td class="remove"><a href="<c:url value='/admin/delete-${notify.id}-${notify.user_id.pesel}-notification' />" class="delete"></a></td>			
+<%-- 				<td class="remove"><a href="<c:url value='/admin/delete-${notify.id}-${notify.user_id.pesel}-notification' />" class="delete"></a></td>	 --%>
+				<td class="remove"><form:form method="POST" action="${deleteUrl}">
+						<input type="submit" value="" class="deleteSubmit">
+				</form:form></td>
+						
 			</tr>
 		</c:forEach>
 	</table>

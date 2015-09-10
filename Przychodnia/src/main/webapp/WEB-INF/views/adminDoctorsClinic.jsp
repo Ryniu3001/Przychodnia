@@ -22,7 +22,16 @@
 
 <%-- 		<form:input type="hidden" path="pk" id="pk" /> --%>
 		<table>
-			<tr></tr>
+<!-- 			<tr> -->
+<!-- 				<td><label for="dayOfWeek">daysOfWeek: </label></td> -->
+<!-- 				<td><select name="days" size="5" multiple="multiple"> -->
+<!-- 						<option value="1">Monday</option> -->
+<!-- 						<option value="2">Tuesday</option> -->
+<!-- 						<option value="3">Wednesday</option> -->
+<!-- 						<option value="4">Thursday</option> -->
+<!-- 						<option value="5">Friday</option> -->
+<!-- 				</select></td> -->
+<!-- 			</tr> -->
 			<tr>
 				<td><label for="dayOfWeek">dayOfWeek: </label></td>
 				<td><form:input path="dayOfWeek" id="dayOfWeek" /></td>

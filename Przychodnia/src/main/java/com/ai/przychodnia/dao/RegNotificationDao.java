@@ -19,5 +19,5 @@ public interface RegNotificationDao
 	
 	void deleteNotification(Reg_notification notification);
 	
-	int countNewNotifications();
+	long countNewNotifications();
 }

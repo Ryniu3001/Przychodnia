@@ -20,5 +20,7 @@ public interface RegNotificationService
 	
 	List<Reg_notification> findAllNotifications();
 	
-	int countNewNotifications();
+	long countNewNotifications();
+	
+	void setNotificationState(int id, boolean state);
 }

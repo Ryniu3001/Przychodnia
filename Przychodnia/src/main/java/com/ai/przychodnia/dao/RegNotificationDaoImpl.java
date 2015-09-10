@@ -62,11 +62,11 @@ public class RegNotificationDaoImpl extends AbstractDao<Integer, Reg_notificatio
 	}
 
 	@Override
-	public int countNewNotifications() {
+	public long countNewNotifications() {
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("read", false));
 		criteria.setProjection(Projections.rowCount());
-		return (int)criteria.uniqueResult();
+		return (long)criteria.uniqueResult();
 	}
 
 }
