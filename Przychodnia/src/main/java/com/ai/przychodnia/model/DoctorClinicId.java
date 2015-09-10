@@ -1,10 +1,7 @@
 package com.ai.przychodnia.model;
 
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Embeddable
 public class DoctorClinicId implements java.io.Serializable{

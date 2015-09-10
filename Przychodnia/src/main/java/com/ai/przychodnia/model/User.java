@@ -1,18 +1,14 @@
 package com.ai.przychodnia.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -24,6 +20,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User
 {
 	@Id
+	@Min(0)
 	@GeneratedValue(strategy = GenerationType.AUTO, generator="user_seq_gen")
 	@SequenceGenerator(name="user_seq_gen", sequenceName="USER_DATA_ID_SEQ")
 	private int id;

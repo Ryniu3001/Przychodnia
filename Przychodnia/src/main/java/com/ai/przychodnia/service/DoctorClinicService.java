@@ -12,6 +12,8 @@ public interface DoctorClinicService {
 	List<Doctor_Clinic> findAllAssignations();
 
 	void newAssignation(Doctor_Clinic assign);
+	
+	void newAssignation(Doctor_Clinic assign, String[] days);
 
 	void deleteAssignationById(DoctorClinicId id);
 	

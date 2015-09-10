@@ -1,9 +1,9 @@
 package com.ai.przychodnia.controller;
 
-import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
-import javax.management.Notification;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -12,6 +12,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,7 @@ import com.ai.przychodnia.model.Doctor_Clinic;
 import com.ai.przychodnia.model.Reg_notification;
 import com.ai.przychodnia.model.User;
 import com.ai.przychodnia.service.ClinicService;
+import com.ai.przychodnia.service.DoctorClinicService;
 import com.ai.przychodnia.service.RegNotificationService;
 import com.ai.przychodnia.service.UserService;
 
@@ -37,6 +39,9 @@ public class AdminController
 	
 	@Autowired
 	ClinicService clinicService;
+	
+	@Autowired
+	DoctorClinicService assignService;
 
 	@Autowired
 	MessageSource messageSource;
@@ -155,11 +160,12 @@ public class AdminController
 	}*/
 	
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.GET)
-	public String assign(@Valid Doctor_Clinic assigns, BindingResult result,ModelMap model) {
+	public String assign(ModelMap model) {
+	
 		Doctor_Clinic dc = new Doctor_Clinic();
-		dc.setHourTo(new Date());
 		List<Clinic> clinics = clinicService.findAllClinics();
 		List<User> doctors = service.findAllUsers(1);
+
 		model.addAttribute("dc",dc);
 		model.addAttribute("clinics", clinics);
 		model.addAttribute("doctors", doctors);
@@ -167,11 +173,37 @@ public class AdminController
 	}
 	
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.POST)
-	public String saveAssign(@Valid Doctor_Clinic assigns, BindingResult result,ModelMap model, HttpServletRequest request) {
-		String[] days = request.getParameterValues("days");
+	public String saveAssign(@ModelAttribute("dc") @Valid Doctor_Clinic assign, BindingResult result,ModelMap model, 
+			HttpServletRequest request) {
 		
-		model.addAttribute("doctors", doctors);
+		String[] days = request.getParameterValues("days");
+		boolean pkOK = isEverythingOk(assign, result, days);
+		if (result.hasErrors() || !pkOK) {
+			model.addAttribute("clinics", clinicService.findAllClinics());
+			model.addAttribute("doctors", service.findAllUsers(1));
+			return "adminDoctorsClinic";
+		}
+
+		assignService.newAssignation(assign,days);
+		
 		return "adminDoctorsClinic";
+	}
+	
+	private boolean isEverythingOk(Doctor_Clinic dc, BindingResult result, String[] days){
+		boolean isOK = true;
+		if (dc.getPk().getDoctor().getId() < 0) {
+			result.rejectValue("doctor", "clinicpk.dc.empty", "Undefined message");
+			isOK = false;
+		}
+		if (dc.getPk().getClinic().getId() < 0) {
+			result.rejectValue("clinic", "clinicpk.dc.empty", "Undefined message");
+			isOK = false;
+		}
+		if(days == null){
+			result.rejectValue("dayOfWeek", "clinicpk.dc.empty", "Undefined message");
+			isOK = false;
+		}
+		return isOK;
 	}
 	
 }

@@ -33,6 +33,15 @@ public class DoctorClinicServiceImpl implements DoctorClinicService {
 		dao.newAssignation(assign);
 	}
 
+	public void newAssignation(Doctor_Clinic assign, String[] days){
+		if (days!=null){
+			for (int i=0; i<days.length;i++){
+				assign.setDayOfWeek(Integer.parseInt(days[i]));
+				dao.newAssignation(assign);
+			}
+		}
+	}
+	
 	@Override
 	public void deleteAssignationById(DoctorClinicId id) {
 		dao.deleteAssignationById(id);

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Clinic {
 	@Size(max=30)
 	private String name;
 	
-	@OneToMany(mappedBy = "pk.clinic", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.clinic", cascade=CascadeType.ALL)
 	private Set<Doctor_Clinic> doctorsInClinic = new HashSet<Doctor_Clinic>(0);
 
 	public int getId() {

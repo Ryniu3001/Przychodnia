@@ -8,7 +8,10 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,20 +27,21 @@ public class Doctor_Clinic implements java.io.Serializable {
 	@EmbeddedId
 	private DoctorClinicId pk = new DoctorClinicId();
 	
-
+	@NotNull
 	private int dayOfWeek;
 	
+	@NotNull
 	@DateTimeFormat(pattern = "H:mm")
-//	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date hourFrom;
 	
-
+	@NotNull
 	@DateTimeFormat(pattern = "H:mm")
-//	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date hourTo;
 	
 	@DateTimeFormat(pattern = "H:mm")
-//	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date contract_Expire;
 
 
