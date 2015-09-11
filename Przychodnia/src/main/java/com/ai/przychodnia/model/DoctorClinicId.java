@@ -3,6 +3,8 @@ package com.ai.przychodnia.model;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Embeddable
 public class DoctorClinicId implements java.io.Serializable{
 
@@ -14,8 +16,11 @@ public class DoctorClinicId implements java.io.Serializable{
 	@ManyToOne
 	private Clinic clinic;
 	
+	@NotEmpty
+	private int dayOfWeek;
 	
-//	@JoinColumn(name="USER_ID")
+	
+	//@JoinColumn(name="USER_ID")
 	public User getDoctor() {
 		return doctor;
 	}
@@ -23,8 +28,7 @@ public class DoctorClinicId implements java.io.Serializable{
 		this.doctor = doctor;
 	}
 	
-	
-//	@JoinColumn(name="CLINIC_ID")
+	//@JoinColumn(name="CLINIC_ID")
 	public Clinic getClinic() {
 		return clinic;
 	}
@@ -32,6 +36,12 @@ public class DoctorClinicId implements java.io.Serializable{
 		this.clinic = clinic;
 	}
 	
+	public int getDayOfWeek() {
+		return dayOfWeek;
+	}
+	public void setDayOfWeek(int dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
+	}
 	
 	@Override
 	public boolean equals(Object obj) {

@@ -4,16 +4,32 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ai.przychodnia.model.Clinic;
 import com.ai.przychodnia.model.DoctorClinicId;
 import com.ai.przychodnia.model.Doctor_Clinic;
+import com.ai.przychodnia.model.User;
+import com.ai.przychodnia.service.ClinicService;
+import com.ai.przychodnia.service.UserService;
 
 @Repository("doctorClinicDao")
 public class DoctorClinicDaoImpl extends AbstractDao<DoctorClinicId, Doctor_Clinic> implements DoctorClinicDao {
 
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	ClinicService clinicService;
+	
 	@Override
 	public Doctor_Clinic findAssignById(DoctorClinicId id) {
+		User doctor = userService.findById(id.getDoctor().getId());
+		Clinic clinic = clinicService.findById(id.getClinic().getId());
+		id.setClinic(clinic);
+		id.setDoctor(doctor);
+		
 		return this.getByKey(id);
 	}
 

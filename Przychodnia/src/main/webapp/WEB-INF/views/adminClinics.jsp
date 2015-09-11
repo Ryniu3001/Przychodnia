@@ -51,7 +51,8 @@ tr:first-child {
 	<br />
 	<a href="<c:url value='/user/new-1' />">Add new doctor</a><br/>
 	<a href="<c:url value='/user/new-2' />">Add new administrator</a><br/>
-	<a href="<c:url value='/admin/clinics/new-clinic' />">Add new clinic</a>
+	<a href="<c:url value='/admin/clinics/new-clinic' />">Add new clinic</a><br/>
+	<a href="<c:url value='/admin/clinics/assign/' />">Add Doctor to Clinic</a>
 	<br/><br/>
 	<a href="<c:url value='/admin/' />">Back to Main Page</a>
 	

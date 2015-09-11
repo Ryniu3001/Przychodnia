@@ -26,7 +26,6 @@
 			<li><a href="<c:url value='/admin/clinics/' />">Clinics</a></li>
 			<li><a href="<c:url value='/admin/patients/' />">Patients list</a></li>
 			<li><a href="<c:url value='/admin/doctors/' />">Doctor lists</a></li>
-			<li><a href="<c:url value='/admin/clinics/assign/' />">add Doctor to Clinic</a></li>
 		</ul>
 	</div>
 </body>

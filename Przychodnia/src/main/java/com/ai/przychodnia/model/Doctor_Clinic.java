@@ -1,5 +1,6 @@
 package com.ai.przychodnia.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.AssociationOverride;
@@ -28,22 +29,27 @@ public class Doctor_Clinic implements java.io.Serializable {
 	private DoctorClinicId pk = new DoctorClinicId();
 	
 	@NotNull
-	private int dayOfWeek;
-	
-	@NotNull
 	@DateTimeFormat(pattern = "H:mm")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date hourFrom;
 	
 	@NotNull
 	@DateTimeFormat(pattern = "H:mm")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date hourTo;
 	
 	@DateTimeFormat(pattern = "H:mm")
 	@Temporal(TemporalType.DATE)
 	private Date contract_Expire;
 
+	public Doctor_Clinic() {}
+	
+	public Doctor_Clinic(Doctor_Clinic dc){
+		this.pk.setClinic(dc.getClinic());
+		this.pk.setDoctor(dc.getDoctor());
+		this.setHourTo(dc.getHourTo());
+		this.setHourFrom(dc.getHourFrom());
+	}	
 
 	@Transient
 	public User getDoctor(){
@@ -63,17 +69,21 @@ public class Doctor_Clinic implements java.io.Serializable {
 		getPk().setClinic(clinic);
 	}
 	
+	public int getDayOfWeek(){
+		return getPk().getDayOfWeek();
+	}
+	
+	public void setDayOfWeek(int dayOfWeek){
+		getPk().setDayOfWeek(dayOfWeek);
+	}
+	
+	
+	
 	public DoctorClinicId getPk() {
 		return pk;
 	}
 	public void setPk(DoctorClinicId pk) {
 		this.pk = pk;
-	}
-	public int getDayOfWeek() {
-		return dayOfWeek;
-	}
-	public void setDayOfWeek(int dayOfWeek) {
-		this.dayOfWeek = dayOfWeek;
 	}
 	public Date getHourFrom() {
 		return hourFrom;

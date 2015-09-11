@@ -64,6 +64,7 @@ public class UserServiceImpl implements UserService
 	public List<User> findAllUsers(int type) {
 		return dao.findAllUsers(type);
 	}
+	
 
 	public User findUserByPesel(String pesel) {
 		return dao.findUserByPesel(pesel);

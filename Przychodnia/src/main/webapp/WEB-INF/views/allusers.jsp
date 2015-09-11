@@ -49,7 +49,7 @@ tr:first-child {
 				<td>${user.surname}</td>
 				<td>${user.city}</td>
 				<td>${user.pesel}</td>
-				<td><a href="<c:url value='/user/delete-${user.pesel}-user' />" class="delete">delete</a></td>
+				<td class="remove"><a href="<c:url value='/user/delete-${user.pesel}-user' />" class="delete"></a></td>
 				
 			</tr>
 		</c:forEach>

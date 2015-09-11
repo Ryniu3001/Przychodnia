@@ -38,6 +38,7 @@ public class DoctorClinicServiceImpl implements DoctorClinicService {
 			for (int i=0; i<days.length;i++){
 				assign.setDayOfWeek(Integer.parseInt(days[i]));
 				dao.newAssignation(assign);
+				assign = new Doctor_Clinic(assign);
 			}
 		}
 	}

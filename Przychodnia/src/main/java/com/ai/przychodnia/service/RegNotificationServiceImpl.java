@@ -64,8 +64,9 @@ public class RegNotificationServiceImpl implements RegNotificationService
 	@Override
 	public void setNotificationState(int id, boolean state) {
 		Reg_notification notification = dao.findById(id);
-		if (notification != null)
-			notification.setRead(state);		
+		if (notification != null){
+			notification.setRead(state);	
+			notification.getUser_id().setIs_enabled(state);
+		}
 	}
-
 }

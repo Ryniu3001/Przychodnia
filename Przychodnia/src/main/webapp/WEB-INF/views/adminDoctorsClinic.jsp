@@ -9,18 +9,30 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main.css" />">
 <title>Form</title>
+<style>
+.errorBlock {
+	border: 1px solid;
+	margin: 10px 0px;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('resources/error.png');
+	background-size: 3%;
+}
+</style>
 </head>
 
 <body>
 	<h2><%@include file="helpers/welcomeUserName.jsp"%></h2>
-	<h2 class="success">
-		<c:out value="${param['success']}" />
-	</h2>
+	<h2 class="success"><c:out value="${param['success']}" /></h2>
 	<h2>FORM</h2>
+	
 	<c:set var="hours">06:00,06:30,07:00,07:30,08:00,08:30,09:00,09:30,10:00,10:30,11:00,11:30,12:00,
 						12:30,13:00,13:30,14:00,14:30,15:00,15:30,16:00,16:30,17:00,17:30,18:00</c:set>
 
-	
+	<form:errors path="dc" class="errorBlock" />
 	<form:form method="POST" modelAttribute="dc">
 
 <%-- 		<form:input type="hidden" path="pk" id="pk" /> --%>

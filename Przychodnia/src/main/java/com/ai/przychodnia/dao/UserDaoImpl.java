@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.helpers.Type;
+import com.ai.przychodnia.model.DoctorClinicId;
 import com.ai.przychodnia.model.User;
 
 @Repository("userDao")
@@ -38,6 +40,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao
 			criteria.add(Restrictions.eq("type", type));
 		return (List<User>) criteria.list();
 	}
+
 
 	public User findUserByPesel(String pesel) {
 		Criteria criteria = createEntityCriteria();

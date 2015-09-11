@@ -1,17 +1,25 @@
 package com.ai.przychodnia.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.hibernate.Hibernate;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,8 +93,8 @@ public class AdminController
 	
 	@RequestMapping(value = {"/accept-{id}-{pesel}-notification" }, method = RequestMethod.POST)
 	public String acceptNotification(@PathVariable int id, @PathVariable String pesel, ModelMap model) {
-		notifyService.deleteNotificationById(id,pesel);
-		model.addAttribute("success", "The notification and user was deleted.");
+		notifyService.setNotificationState(id, true);
+		model.addAttribute("success", "User was accepted.");
 		return "redirect:/admin/notifications";
 	}
 	
@@ -133,6 +141,32 @@ public class AdminController
 	@RequestMapping(value = {"/clinics/edit-{id}-{name}-clinic" }, method = RequestMethod.GET)
 	public String editClinic(@PathVariable int id, @PathVariable String name, ModelMap model) {
 		Clinic clinic = clinicService.findById(id);
+		
+//		Hibernate.initialize(clinic.getDoctorsInClinic());
+//		List<Doctor_Clinic> users = new ArrayList<Doctor_Clinic>();		
+//		users.addAll(clinic.getDoctorsInClinic());
+//
+//		Map<Integer,String> map = new HashMap<Integer, String>();
+//		for (int i=0; i<users.size();i++){
+//			int uid = users.get(i).getDoctor().getId();
+//			if (!map.containsKey(uid)){				
+//				String workTime = "";
+//				for (int j=0; j<users.size(); j++){
+//					if (users.get(j).getDoctor().getId() == uid){
+//						workTime += users.get(j).getDayOfWeek() + " " + users.get(j).getHourFrom() + " - " + users.get(j).getHourTo() + "\n";
+//					}
+//				}
+//				map.put(uid, workTime);
+//			}
+//		}
+//		
+//		List<User> users2 = new ArrayList<User>();
+//		for (Iterator<Doctor_Clinic> it = clinic.getDoctorsInClinic().iterator(); it.hasNext();){
+//			users2.add(it.next().getDoctor());
+//		}
+//		
+//		model.addAttribute("times", map);
+//		model.addAttribute("users", users2);
 		model.addAttribute("clinic", clinic);
 		model.addAttribute("edit", true);
 		return "adminEditClinic";
@@ -184,9 +218,19 @@ public class AdminController
 			return "adminDoctorsClinic";
 		}
 
-		assignService.newAssignation(assign,days);
+		try {
+			assignService.newAssignation(assign, days);
+		} catch (DataIntegrityViolationException e) {
+			ObjectError err = new ObjectError("dc", messageSource.getMessage(
+					"unique.dc.assign", null, Locale.getDefault()));
+			result.addError(err);
+			model.addAttribute("clinics", clinicService.findAllClinics());
+			model.addAttribute("doctors", service.findAllUsers(1));
+			return "adminDoctorsClinic";
+		}
+		model.addAttribute("success", "Doctor-Clinic link is created.");
 		
-		return "adminDoctorsClinic";
+		return "redirect:/admin/";
 	}
 	
 	private boolean isEverythingOk(Doctor_Clinic dc, BindingResult result, String[] days){
@@ -203,6 +247,18 @@ public class AdminController
 			result.rejectValue("dayOfWeek", "clinicpk.dc.empty", "Undefined message");
 			isOK = false;
 		}
+		
+/*		if (days != null)
+			for (int i=0; i<days.length; i++){
+				dc.getPk().setDayOfWeek(Integer.parseInt(days[i]));		
+				if (assignService.findAssignById(dc.getPk()) != null){
+					ObjectError err = new ObjectError("dc", messageSource.getMessage(
+							"unique.dc.assign", null, Locale.getDefault()));
+					result.addError(err);
+					isOK = false;
+					break;
+				}
+			}*/
 		return isOK;
 	}
 	
