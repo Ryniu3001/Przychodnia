@@ -1,6 +1,7 @@
 package com.ai.przychodnia.model;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.AssociationOverride;
@@ -69,11 +70,11 @@ public class Doctor_Clinic implements java.io.Serializable {
 		getPk().setClinic(clinic);
 	}
 	
-	public int getDayOfWeek(){
+	public String getDayOfWeek(){
 		return getPk().getDayOfWeek();
 	}
 	
-	public void setDayOfWeek(int dayOfWeek){
+	public void setDayOfWeek(String dayOfWeek){
 		getPk().setDayOfWeek(dayOfWeek);
 	}
 	
@@ -103,4 +104,13 @@ public class Doctor_Clinic implements java.io.Serializable {
 	public void setContract_Expire(Date contract_Expire) {
 		this.contract_Expire = contract_Expire;
 	}
+	
+	@Override
+	public String toString() {
+		String from = new SimpleDateFormat("H:mm").format(hourFrom);
+		String to = new SimpleDateFormat("H:mm").format(hourTo);
+		return "<b>" + getDoctor().getSurname() + " " + getDoctor().getName()
+				+ ":</b> " + getDayOfWeek() + " <span id=\"time\">" + from + " - " + to + "</span>";
+	}
+	
 }

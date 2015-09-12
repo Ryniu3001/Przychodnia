@@ -17,7 +17,7 @@ public class DoctorClinicId implements java.io.Serializable{
 	private Clinic clinic;
 	
 	@NotEmpty
-	private int dayOfWeek;
+	private String dayOfWeek;
 	
 	
 	//@JoinColumn(name="USER_ID")
@@ -36,10 +36,10 @@ public class DoctorClinicId implements java.io.Serializable{
 		this.clinic = clinic;
 	}
 	
-	public int getDayOfWeek() {
+	public String getDayOfWeek() {
 		return dayOfWeek;
 	}
-	public void setDayOfWeek(int dayOfWeek) {
+	public void setDayOfWeek(String dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
 	}
 	

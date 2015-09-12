@@ -24,6 +24,7 @@
 				</c:otherwise>
 			</c:choose>
 			<li><a href="<c:url value='/admin/clinics/' />">Clinics</a></li>
+			<li><a href="<c:url value='/admin/clinics/assignment-0' />">Doctors in Clinics</a></li>
 			<li><a href="<c:url value='/admin/patients/' />">Patients list</a></li>
 			<li><a href="<c:url value='/admin/doctors/' />">Doctor lists</a></li>
 		</ul>

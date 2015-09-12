@@ -35,11 +35,12 @@ public class DoctorClinicServiceImpl implements DoctorClinicService {
 
 	public void newAssignation(Doctor_Clinic assign, String[] days){
 		if (days!=null){
-			for (int i=0; i<days.length;i++){
-				assign.setDayOfWeek(Integer.parseInt(days[i]));
-				dao.newAssignation(assign);
-				assign = new Doctor_Clinic(assign);
-			}
+			String value = "";
+			for (int i=0; i<days.length;i++)
+				value += days[i] + ", ";
+			value = (String) value.subSequence(0, value.length()-1);
+			assign.setDayOfWeek(value);
+			dao.newAssignation(assign);
 		}
 	}
 	

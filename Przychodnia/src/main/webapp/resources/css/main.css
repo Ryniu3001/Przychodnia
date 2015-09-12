@@ -113,6 +113,11 @@ td#notifyAccept{
 span#newNotification{
 	color: lime;
 }
+
+span#time{
+	padding-left: 20px;
+	float: right;
+}
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:50%;
@@ -160,7 +165,8 @@ span#newNotification{
 	border-bottom-left-radius:0px;
 	}
 .CSSTableGenerator tr:nth-child(odd){ height: 20px; background-color:#e2fbff; }
-.CSSTableGenerator tr:nth-child(even)    { height: 20px; background-color:#ffffff; }.CSSTableGenerator td{
+.CSSTableGenerator tr:nth-child(even)    { height: 20px; background-color:#ffffff; }
+.CSSTableGenerator td{
 	vertical-align:middle;
 	border:1px solid #000000;
 	border-width:0px 1px 1px 0px;

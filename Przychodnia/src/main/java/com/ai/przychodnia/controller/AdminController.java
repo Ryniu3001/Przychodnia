@@ -1,22 +1,19 @@
 package com.ai.przychodnia.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.hibernate.Hibernate;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -186,13 +183,7 @@ public class AdminController
 	/*******************************************************************************/
 	/******************************* DOCTOR - CLINIC *******************************/
 	/*******************************************************************************/
-	
-/*	@ModelAttribute("asd")
-	public Doctor_Clinic getDoc(){
-		Doctor_Clinic dc = new Doctor_Clinic();
-		return dc;
-	}*/
-	
+	//TODO Doktorzy przypisani do klinik
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.GET)
 	public String assign(ModelMap model) {
 	
@@ -247,19 +238,24 @@ public class AdminController
 			result.rejectValue("dayOfWeek", "clinicpk.dc.empty", "Undefined message");
 			isOK = false;
 		}
-		
-/*		if (days != null)
-			for (int i=0; i<days.length; i++){
-				dc.getPk().setDayOfWeek(Integer.parseInt(days[i]));		
-				if (assignService.findAssignById(dc.getPk()) != null){
-					ObjectError err = new ObjectError("dc", messageSource.getMessage(
-							"unique.dc.assign", null, Locale.getDefault()));
-					result.addError(err);
-					isOK = false;
-					break;
-				}
-			}*/
 		return isOK;
+	}
+	@Transactional
+	@RequestMapping(value = {"/clinics/assignment-{cid}" }, method = RequestMethod.GET)
+	public String assignment(@PathVariable int cid, ModelMap model) {
+		List<Clinic> clinics = null;
+		if (cid == 0){
+			clinics = clinicService.findAllClinics();
+		}else{
+			clinics = new ArrayList<Clinic>(1);
+			clinics.add(clinicService.findById(cid));
+		}
+		
+		for (Iterator<Clinic> it = clinics.iterator(); it.hasNext(); )
+			Hibernate.initialize(it.next().getDoctorsInClinic());
+		
+		model.addAttribute("clinics", clinics);
+		return "adminDoctorsClinicAssignment";
 	}
 	
 }
