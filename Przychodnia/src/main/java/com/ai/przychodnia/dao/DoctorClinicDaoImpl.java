@@ -48,9 +48,10 @@ public class DoctorClinicDaoImpl extends AbstractDao<DoctorClinicId, Doctor_Clin
 	@Override
 	public void deleteAssignationById(DoctorClinicId id) {
 		Query hql = getSession().createSQLQuery(
-				"delete from DOCTOR_CLINIC where USER_ID = :uid and CLINIC_ID = :cid");
+				"delete from DOCTOR_CLINIC where USER_ID = :uid and CLINIC_ID = :cid and DAYOFWEEK = :dow");
 		hql.setString("uid", Integer.toString(id.getDoctor().getId()));
 		hql.setString("cid", Integer.toString(id.getClinic().getId()));
+		hql.setString("dow", id.getDayOfWeek());
 		hql.executeUpdate();
 	}
 

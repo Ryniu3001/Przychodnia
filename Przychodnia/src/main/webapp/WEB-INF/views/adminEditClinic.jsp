@@ -32,26 +32,9 @@
 	<div class="editClinic">
 		<%@include file="adminNewClinic.jsp"%>
 	</div>
-<%-- 	<div class="clinicDoctors">
-<div class="CSSTableGenerator">
-	<table>
-		<tr>
-			<td>Name</td>
-			<td>Surname</td>
-			<td>PWZ</td>
-			<td>Work Time</td>
-		</tr>
-		<c:forEach items="${users}" var="user">
-			<tr>
-				<td>${user.username}</td>
-				<td>${user.surname}</td>
-				<td>${user.pwz}</td>
-				<td>${times[30]}</td>				
-			</tr>
-		</c:forEach>
-	</table>
+	<div class="clinicDoctors">
+<%-- 		<%@include file="adminDoctorsClinicAssignment.jsp"%> --%>
 	</div>
-	</div> --%>
 
 
 </body>

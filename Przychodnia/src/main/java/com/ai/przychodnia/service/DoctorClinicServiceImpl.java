@@ -38,7 +38,7 @@ public class DoctorClinicServiceImpl implements DoctorClinicService {
 			String value = "";
 			for (int i=0; i<days.length;i++)
 				value += days[i] + ", ";
-			value = (String) value.subSequence(0, value.length()-1);
+			value = (String) value.subSequence(0, value.length()-2);
 			assign.setDayOfWeek(value);
 			dao.newAssignation(assign);
 		}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 <script src="<c:url value="/resources/jquery/jquery-1.11.3.js" />" ></script>
@@ -8,7 +9,7 @@
 	href="<c:url value="/resources/css/main.css" />">
  <script type="text/javascript">
  $(document).ready(function () {
-	 $('.delete').click(function(event) {
+	 $('.deleteSubmit').click(function(event) {
 		    event.preventDefault();
 		    var r=confirm("Are you sure you want to delete?");
 		    if (r==true)   {  
@@ -37,13 +38,17 @@ tr:first-child {
 	<table>
 		<tr>
 			<td>Clinic Name</td>
-			<td/>
+			<td>Remove</td>
+			<td>Doctors</td>
 		</tr>
 		<c:forEach items="${clinics}" var="clinic">
+		<c:url var="deleteUrl" value="/admin/clinics/delete-${clinic.id}-${clinic.name}-clinic" />
 			<tr>
 				<td width="300px"><a href="<c:url value='/admin/clinics/edit-${clinic.id}-${clinic.name}-clinic' />">${clinic.name}</a></td>
-				<td class="remove"><a href="<c:url value='/admin/clinics/delete-${clinic.id}-${clinic.name}-clinic' />" class="delete"></a></td>
-				
+				<td class="remove"><form:form method="POST" action="${deleteUrl}">
+											<input type="submit" value="" class="deleteSubmit">
+										</form:form></td>
+				<td><a href="<c:url value='/admin/clinics/assignment-${clinic.id}' />">Doctors</a></td>
 			</tr>
 		</c:forEach>
 	</table>

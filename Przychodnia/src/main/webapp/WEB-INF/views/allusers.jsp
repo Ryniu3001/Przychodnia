@@ -44,8 +44,7 @@ tr:first-child {
 		</tr>
 		<c:forEach items="${users}" var="user">
 			<tr>
-				<td><a
-					href="<c:url value='/user/edit-${user.username}-user' />">${user.username}</a></td>
+				<td><a href="<c:url value='/user/edit-${user.username}-user' />">${user.username}</a></td>
 				<td>${user.surname}</td>
 				<td>${user.city}</td>
 				<td>${user.pesel}</td>

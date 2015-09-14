@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ai.przychodnia.helpers.Type;
 import com.ai.przychodnia.model.Clinic;
+import com.ai.przychodnia.model.DoctorClinicId;
 import com.ai.przychodnia.model.Doctor_Clinic;
 import com.ai.przychodnia.model.Reg_notification;
 import com.ai.przychodnia.model.User;
@@ -127,7 +129,7 @@ public class AdminController
 		return "redirect:/admin/clinics/";
 	}
 	
-	@RequestMapping(value = {"/clinics/delete-{id}-{name}-clinic" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/clinics/delete-{id}-{name}-clinic" }, method = RequestMethod.POST)
 	public String deleteClinic(@PathVariable int id, @PathVariable String name, ModelMap model) {
 				
 		clinicService.deleteClinicById(id);
@@ -256,6 +258,17 @@ public class AdminController
 		
 		model.addAttribute("clinics", clinics);
 		return "adminDoctorsClinicAssignment";
+	}
+	
+	@RequestMapping(value = {"/clinics/assignment/delete-{cid}-{uid}-{dayOfWeek}" }, method = RequestMethod.POST)
+	public String removeAssignment(@PathVariable int cid, @PathVariable int uid,
+			@PathVariable String dayOfWeek, RedirectAttributes redirectAttributes) {
+		DoctorClinicId pk = new DoctorClinicId(cid, uid);
+		pk.setDayOfWeek(dayOfWeek);
+		assignService.deleteAssignationById(pk);
+		
+		redirectAttributes.addAttribute("success", "Doctor-Clinic link deleted.");
+		return "redirect:/admin/";
 	}
 	
 }

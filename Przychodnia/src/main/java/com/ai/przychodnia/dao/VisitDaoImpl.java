@@ -36,5 +36,6 @@ public class VisitDaoImpl<T> extends AbstractDao<Integer, Visit> implements
 	public void deleteVisit(Visit visit) {
 		this.delete(visit);
 	}
+	
 
 }

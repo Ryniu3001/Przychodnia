@@ -32,34 +32,40 @@
 	<h2>New Visit Form</h2>
 
 	<form:errors path="visit" class="errorBlock" />
-	<c:url var="postUrl" value="/visits/new/choose-doctor" />
+	<c:url var="postUrl"
+		value="/visits/new/choose-date" />
+
 	<form:form method="POST" modelAttribute="visit" action="${postUrl}">
 
 		<form:input type="hidden" path="id" id="id" />
 		<table>
 
 			<tr>
-				<td><label for="patient.id">Patient: </label></td>
-				<td><form:input value="${patient.name} ${patient.surname} ${patient.pesel}" path="" disabled="true"/></td>
+				<td><label for="patient">Patient: </label></td>
+				<%-- 				<td><form:input value="${patient.name} ${patient.surname} ${patient.pesel}" path="" disabled="true"/></td> --%>
+				<td><form:input path="patient" id="patient" disabled="true"
+						value="${patient.name} ${patient.surname} ${patient.pesel}" /></td>
 				<form:input type="hidden" path="patient.id" id="patient.id" value="${patient.id}" />
 			</tr>
 
 			<tr>
 				<td><label for="clinic">Clinic: </label></td>
-				<td><form:select name="clinic" path="clinic.id" style="width: 200px;">
-						<option value="-1">SELECT</option>
-						<c:forEach items="${clinics}" var="clinic">
-							<option value="${clinic.id}">${clinic}</option>
-						</c:forEach>
-				</form:select></td>
-				<td><form:errors path="clinic" cssClass="error" /></td>
+				<%-- 				<td><form:input value="${doctor.name} " path="" disabled="true"/></td> --%>
+				<td><form:input path="clinic" id="clinic" disabled="true"
+						value="${clinic.name}" /></td>
+				<form:input type="hidden" path="clinic.id" id="clinic.id" value="${clinic.id}" />
 			</tr>
 
-<%-- 			<tr>
-				<td><label for="datee">datee: </label></td>
-				<td><form:input path="datee" id="datee" /></td>
-				<td><form:errors path="datee" cssClass="error" /></td>
-			</tr> --%>
+			<tr>
+				<td><label for="doctor">Doctor: </label></td>
+				<td><form:select name="doctor" path="doctor.id"
+						style="width: 200px;">
+						<option value="-1">SELECT</option>
+						<c:forEach items="${doctors}" var="doctor">
+							<option value="${doctor.id}">${doctor.name}</option>
+						</c:forEach>
+					</form:select></td>
+			</tr>
 
 			<tr>
 				<td colspan="3"><c:choose>

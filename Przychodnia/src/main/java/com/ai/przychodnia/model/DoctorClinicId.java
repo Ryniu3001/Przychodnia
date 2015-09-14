@@ -20,6 +20,15 @@ public class DoctorClinicId implements java.io.Serializable{
 	private String dayOfWeek;
 	
 	
+	
+	public DoctorClinicId() {}
+	
+	public DoctorClinicId(int cid, int uid){
+		this.doctor = new User();
+		this.doctor.setId(uid);
+		this.clinic = new Clinic();
+		this.clinic.setId(cid);
+	}
 	//@JoinColumn(name="USER_ID")
 	public User getDoctor() {
 		return doctor;
