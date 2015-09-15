@@ -119,7 +119,21 @@ span#time{
 	float: right;
 }
 
+.errorBlock {
+	border: 1px solid;
+	margin: 10px 20px;
+	padding: 15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('resources/error.png');
+	background-size: 3%;
+}
 
+.errorBlockDiv{
+	margin-bottom: 20px;
+}
 
 .CSSTableGenerator {
 	margin:0px;padding:0px;

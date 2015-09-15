@@ -10,28 +10,15 @@
 	href="<c:url value="/resources/css/main.css" />">
 <title>User Registration Form</title>
 
-<style>
-.errorBlock {
-	border: 1px solid;
-	margin: 10px 0px;
-	padding: 15px 10px 15px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	color: #D8000C;
-	background-color: #FFBABA;
-	background-image: url('resources/error.png');
-	background-size: 3%;
-}
-}
-</style>
-
 </head>
 
 <body>
 <h2><%@include file="helpers/welcomeUserName.jsp"%></h2>
 	<h2>New Visit Form</h2>
 
-	<form:errors path="visit" class="errorBlock" />
+	<div class="errorBlockDiv">
+		<form:errors path="visit" class="errorBlock" />
+	</div>
 	<c:url var="postUrl" value="/visits/new/choose-doctor" />
 	<form:form method="POST" modelAttribute="visit" action="${postUrl}">
 

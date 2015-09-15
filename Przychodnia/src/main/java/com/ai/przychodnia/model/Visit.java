@@ -1,6 +1,7 @@
 package com.ai.przychodnia.model;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Visit
@@ -26,13 +33,14 @@ public class Visit
 	@JoinColumn(name="doctor") 
 	private User doctor;
 
-//	@NotNull
-//	@DateTimeFormat(pattern = "H:mm")
-//	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy H:mm")
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DATE_S")
 	private Date datee;
 	
 	@OneToOne
+	@JoinColumn(name = "CLINIC")
 	private Clinic clinic;
 
 	public int getId() {

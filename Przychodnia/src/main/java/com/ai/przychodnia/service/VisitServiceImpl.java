@@ -1,5 +1,6 @@
 package com.ai.przychodnia.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ai.przychodnia.dao.UserDao;
 import com.ai.przychodnia.dao.VisitDao;
-import com.ai.przychodnia.model.User;
 import com.ai.przychodnia.model.Visit;
 
 @Service
@@ -41,6 +41,10 @@ public class VisitServiceImpl implements VisitService
 
 	public Visit findVisitById(int id) {
 		return dao.findById(id);
+	}
+	
+	public List<Date> takenTerms(int cid, int did){
+		return dao.takenTerms(cid, did);
 	}
 
 }

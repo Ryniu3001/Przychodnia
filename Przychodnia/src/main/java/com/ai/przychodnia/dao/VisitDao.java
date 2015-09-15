@@ -1,5 +1,6 @@
 package com.ai.przychodnia.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.ai.przychodnia.model.User;
@@ -16,5 +17,7 @@ public interface VisitDao
 	List<Visit> findAllVisits();
 	
 	void deleteVisit(Visit visit);
+	
+	List<Date> takenTerms(int cid, int did);
 
 }

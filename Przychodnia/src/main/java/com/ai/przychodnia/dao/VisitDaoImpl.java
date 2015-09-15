@@ -1,14 +1,18 @@
 package com.ai.przychodnia.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.model.Visit;
 @Repository("visitDao")
-public class VisitDaoImpl<T> extends AbstractDao<Integer, Visit> implements
+public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements
 		VisitDao
 {
 
@@ -35,6 +39,20 @@ public class VisitDaoImpl<T> extends AbstractDao<Integer, Visit> implements
 
 	public void deleteVisit(Visit visit) {
 		this.delete(visit);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Date> takenTerms(int cid, int did){
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("doctor.id", did));
+		criteria.add(Restrictions.eq("clinic.id", cid));
+		List<Visit> visits = criteria.list();
+		List<Date> dates = new ArrayList<Date>();
+		for (Iterator<Visit> it = visits.iterator(); it.hasNext(); )
+		{
+			dates.add(it.next().getDatee());
+		}
+		return dates;
 	}
 	
 
