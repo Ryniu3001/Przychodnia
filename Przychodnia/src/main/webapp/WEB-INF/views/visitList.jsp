@@ -30,7 +30,14 @@
 		<table>
 			<tr>
 				<td>Clinic</td>
-				<td>Doctor</td>
+				<c:choose>
+					<c:when test="${doctor == true}">
+						<td>Patient</td>
+					</c:when>
+					<c:otherwise>
+						<td>Doctor</td>
+					</c:otherwise>
+				</c:choose>
 				<td>Date</td>
 				<td>Confirm/Cancel</td>
 			</tr>
@@ -38,11 +45,18 @@
 		<c:url var="deleteUrl" value="/visits/remove-${visit.id}" />
 			<tr>
 				<td>${visit.clinic.name}</td>
-				<td>${visit.doctor.name} ${visit.doctor.surname}</td>
+				<c:choose>
+					<c:when test="${doctor == true}">
+						<td>${visit.patient.name} ${visit.patient.surname}</td>
+					</c:when>
+					<c:otherwise>
+						<td>${visit.doctor.name} ${visit.doctor.surname}</td>
+					</c:otherwise>
+				</c:choose>
 				<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${visit.datee}"/></td>
 				<td class="remove" style="width: 10%">
 					<form:form method="POST" action="${deleteUrl}" class="delForm">
-						<input type="submit" value="" alt="asasd" class="deleteSubmit">
+						<input type="submit" value="" class="deleteSubmit">
 					</form:form>
 				</td>
 				</tr>
@@ -50,7 +64,7 @@
 		</table>
 	</div>
 	<br />
-	<a href="<c:url value='/admin' />">Back to Main Page</a>
+	<a href="<c:url value='/' />">Back to Main Page</a>
 	<br />
 </body>
 </html>

@@ -8,23 +8,13 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main.css" />">
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$('.delete')
-								.click(
-										function(event) {
-											event.preventDefault();
-											var r = confirm("Are you sure you want to delete user and notification?");
-											if (r == true) {
-												window.location = $(this).attr(
-														'href');
-											}
-
-										});
-					});
+	$(document).ready(function() {
+		$('.delForm').submit(function(){
+			var c = confirm("Are you sure you want to delete?");
+			return c;
+		});
+	});
 </script>
-
 <title>Registration Notifications</title>
 
 </head>
@@ -52,10 +42,9 @@
 					<td>${notify.user_id.surname}${notify.user_id.name}
 						${notify.user_id.pesel}</td>
 					<%-- 				<td class="remove"><a href="<c:url value='/admin/delete-${notify.id}-${notify.user_id.pesel}-notification' />" class="delete"></a></td>	 --%>
-					<td class="remove"><form:form method="POST"
-							action="${deleteUrl}">
-							<input type="submit" value="" class="deleteSubmit">
-						</form:form></td>
+				<td class="remove"><form:form method="POST" action="${deleteUrl}" class="delForm">
+											<input type="submit" value="" class="deleteSubmit">
+										</form:form></td>
 
 				</tr>
 			</c:forEach>

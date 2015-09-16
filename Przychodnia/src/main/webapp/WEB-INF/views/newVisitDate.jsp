@@ -73,7 +73,8 @@
 	</form:form>
 
 	<br />
-	<br /> Go back to
-	<a href="<c:url value='/visits/list' />">List of All Visits</a>
+	<br /> 
+	<a href="<c:url value='/visits/list' />">List of All Visits</a> <br/>
+	<a href="<c:url value='/' />">Back to Main Page</a>
 </body>
 </html>

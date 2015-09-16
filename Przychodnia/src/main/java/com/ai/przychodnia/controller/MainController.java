@@ -56,11 +56,12 @@ public class MainController
 	
 	@RequestMapping(value = { "/user" }, method = RequestMethod.GET)
 	public String userMain(ModelMap model) {
-/*		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); 				//get logged in username
-	    User user = userService.findUserByUsername(name);
-	    model.addAttribute("username", user.getUsername());*/
 		return "userMainView";
+	}
+	
+	@RequestMapping(value = { "/doctor" }, method = RequestMethod.GET)
+	public String doctorMain(ModelMap model) {
+		return "doctorMainView";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

@@ -63,5 +63,14 @@ public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements VisitDa
 		return visits;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Visit> doctorVisits(int did){
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("doctor.id", did));
+		List <Visit> visits = new ArrayList<Visit>();
+		visits = criteria.list();
+		return visits;
+	}
+	
 
 }

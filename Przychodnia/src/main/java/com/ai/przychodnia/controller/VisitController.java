@@ -37,6 +37,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ai.przychodnia.helpers.DaysDecoder;
 import com.ai.przychodnia.helpers.TaskTimer;
+import com.ai.przychodnia.helpers.Type;
 import com.ai.przychodnia.model.Clinic;
 import com.ai.przychodnia.model.Doctor_Clinic;
 import com.ai.przychodnia.model.User;
@@ -66,8 +67,12 @@ public class VisitController
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName();
 	    User user = userService.findUserByUsername(name);
-	    
-	    List<Visit> visits = service.userVisits(user.getId());
+	    List<Visit> visits = null;
+	    if (user.getType() == Type.patients.getValue())
+	    	visits = service.userVisits(user.getId());
+	    else if (user.getType() == Type.doctors.getValue())
+	    	visits = service.doctorVisits(user.getId());
+	    model.addAttribute("doctor", user.getType() == Type.doctors.getValue() ? true : false);
 	    model.addAttribute("visits", visits);
 		return "visitList"; 
 	}
@@ -123,6 +128,7 @@ public class VisitController
 		redirectAttributes.addAttribute("success", visit + " registered successfully");
 		return "redirect:/visits/list";
 	}
+	
 	@Transactional
 	@RequestMapping(value = { "/new/choose-doctor" }, method = RequestMethod.POST)
 	public String pickVisitDoctor(@ModelAttribute Visit visit, ModelMap model) {

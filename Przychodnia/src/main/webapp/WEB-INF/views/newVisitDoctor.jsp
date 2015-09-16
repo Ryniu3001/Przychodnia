@@ -52,6 +52,12 @@
 				<td><label for="clinic">Clinic: </label></td>
 				<td><form:input path="clinic.name" id="clinic.name" disabled="true"	value="${clinic.name}" /></td>
 				<form:input type="hidden" path="clinic.id" id="clinic.id" value="${clinic.id}" />
+<%-- 				<td>
+					<c:url var="earliestUrl" value="/visits/new/earliest-{clinic.id}" />
+					<form:form method="POST" action="${earliestUrl}">
+						<input type="submit" value="Earliest date in clinic" >
+					</form:form>
+				</td> --%>
 			</tr>
 
 			<tr>
@@ -66,20 +72,16 @@
 			</tr>
 
 			<tr>
-				<td colspan="3"><c:choose>
-						<c:when test="${edit}">
-							<input type="submit" value="Update" />
-						</c:when>
-						<c:otherwise>
-							<input type="submit" value="Register" />
-						</c:otherwise>
-					</c:choose></td>
+				<td>
+					<input type="submit" value="Next" />
+				</td>
 			</tr>
 		</table>
 	</form:form>
 
 	<br />
-	<br /> Go back to
-	<a href="<c:url value='/visits/list' />">List of All Visits</a>
+	<br /> 
+	<a href="<c:url value='/visits/list' />">List of All Visits</a> <br/>
+	<a href="<c:url value='/' />">Back to Main Page</a>
 </body>
 </html>

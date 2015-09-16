@@ -50,5 +50,9 @@ public class VisitServiceImpl implements VisitService
 	public List<Visit> userVisits(int uid){
 		return dao.userVisits(uid);
 	}
+	
+	public List<Visit> doctorVisits(int did){
+		return dao.doctorVisits(did);
+	}
 
 }

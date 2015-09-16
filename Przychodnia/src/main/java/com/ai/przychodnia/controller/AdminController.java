@@ -128,7 +128,7 @@ public class AdminController
 		model.addAttribute("success", "Clinic " + clinic.getName() + " was added.");
 		return "redirect:/admin/clinics/";
 	}
-	
+
 	@RequestMapping(value = {"/clinics/delete-{id}-{name}-clinic" }, method = RequestMethod.POST)
 	public String deleteClinic(@PathVariable int id, @PathVariable String name, ModelMap model) {
 				

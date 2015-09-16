@@ -7,18 +7,14 @@
 <script src="<c:url value="/resources/jquery/jquery-1.11.3.js" />" ></script>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main.css" />">
- <script type="text/javascript">
- $(document).ready(function () {
-	 $('.deleteSubmit').click(function(event) {
-		    event.preventDefault();
-		    var r=confirm("Are you sure you want to delete?");
-		    if (r==true)   {  
-		       window.location = $(this).attr('href');
-		    }
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.delForm').submit(function(){
+			var c = confirm("Are you sure you want to delete?");
+			return c;
 		});
- });
- </script>
+	});
+</script>
 
 <title>List of Clinics</title>
 
@@ -45,7 +41,7 @@ tr:first-child {
 		<c:url var="deleteUrl" value="/admin/clinics/delete-${clinic.id}-${clinic.name}-clinic" />
 			<tr>
 				<td width="300px"><a href="<c:url value='/admin/clinics/edit-${clinic.id}-${clinic.name}-clinic' />">${clinic.name}</a></td>
-				<td class="remove"><form:form method="POST" action="${deleteUrl}">
+				<td class="remove"><form:form method="POST" action="${deleteUrl}" class="delForm">
 											<input type="submit" value="" class="deleteSubmit">
 										</form:form></td>
 				<td><a href="<c:url value='/admin/clinics/assignment-${clinic.id}' />">Doctors</a></td>

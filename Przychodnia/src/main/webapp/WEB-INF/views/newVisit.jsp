@@ -49,20 +49,16 @@
 			</tr> --%>
 
 			<tr>
-				<td colspan="3"><c:choose>
-						<c:when test="${edit}">
-							<input type="submit" value="Update" />
-						</c:when>
-						<c:otherwise>
-							<input type="submit" value="Register" />
-						</c:otherwise>
-					</c:choose></td>
+				<td>
+					<input type="submit" value="Next" />
+				</td>
 			</tr>
 		</table>
 	</form:form>
 
 	<br />
-	<br /> Go back to
-	<a href="<c:url value='/visits/list' />">List of All Visits</a>
+	<br /> 
+	<a href="<c:url value='/visits/list' />">List of All Visits</a> <br/>
+	<a href="<c:url value='/' />">Back to Main Page</a>
 </body>
 </html>
