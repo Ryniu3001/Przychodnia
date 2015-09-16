@@ -15,8 +15,8 @@
 <h2>Choose operation:</h2>
 	<div id="list">
 		<ul>
-			<li><a href="user/patients"><span>Patients list</span></a></li>
-			<li><a href="user/doctors"><span>Doctor lists</span></a></li>
+			<li><a href="<c:url value="/visits/new" />"><span>New Visit</span></a></li>
+			<li><a href="<c:url value="/visits/new" />"><span>List of my visits</span></a></li>
 		</ul>
 	</div>
 </body>

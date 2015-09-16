@@ -2,8 +2,6 @@ package com.ai.przychodnia.helpers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import com.ai.przychodnia.model.Doctor_Clinic;
@@ -45,6 +43,11 @@ public class DaysDecoder {
 		return instance;
 	}
 	
+	/**
+	 * Zamienia String z dniami pracy lekarza na wygodna postac mapy z godzinami pracy
+	 * @param days
+	 * @param map
+	 */
 	public void decode(Doctor_Clinic days, Map<Integer, String[]> map){
 		String[] tmp = days.getDayOfWeek().split("\\, ");
 		DateFormat dateFormat = new SimpleDateFormat("HH:mm");

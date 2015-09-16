@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ai.przychodnia.dao.ClinicDao;
 import com.ai.przychodnia.dao.DoctorClinicDao;
 import com.ai.przychodnia.model.DoctorClinicId;
 import com.ai.przychodnia.model.Doctor_Clinic;

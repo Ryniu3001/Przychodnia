@@ -3,20 +3,13 @@ package com.ai.przychodnia.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import org.hibernate.criterion.CriteriaQuery;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.engine.spi.TypedValue;
 import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.model.Reg_notification;
-import com.ai.przychodnia.model.User;
-import com.ai.przychodnia.model.Visit;
 
 @Repository("regNotificationDao")
 public class RegNotificationDaoImpl extends AbstractDao<Integer, Reg_notification> implements RegNotificationDao

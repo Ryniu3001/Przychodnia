@@ -4,23 +4,26 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.helpers.Type;
-import com.ai.przychodnia.model.DoctorClinicId;
 import com.ai.przychodnia.model.User;
 
 @Repository("userDao")
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao
 {
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	public User findById(int id) {
 		return getByKey(id);
 	}
 
 	public void saveUser(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		persist(user);
 	}
 

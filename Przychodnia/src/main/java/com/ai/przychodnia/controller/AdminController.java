@@ -185,7 +185,7 @@ public class AdminController
 	/*******************************************************************************/
 	/******************************* DOCTOR - CLINIC *******************************/
 	/*******************************************************************************/
-	//TODO Doktorzy przypisani do klinik
+
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.GET)
 	public String assign(ModelMap model) {
 	

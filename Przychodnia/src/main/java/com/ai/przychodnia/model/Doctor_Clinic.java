@@ -1,6 +1,5 @@
 package com.ai.przychodnia.model;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

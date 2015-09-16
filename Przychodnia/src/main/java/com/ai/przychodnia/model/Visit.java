@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -42,6 +41,8 @@ public class Visit
 	@OneToOne
 	@JoinColumn(name = "CLINIC")
 	private Clinic clinic;
+	
+	private boolean comfirmed = false;
 
 	public int getId() {
 		return id;
@@ -83,6 +84,8 @@ public class Visit
 		this.clinic = clinic;
 	}
 
+	
+	
 //	@Override
 //	public int hashCode() {
 //		final int prime = 31;
@@ -92,6 +95,14 @@ public class Visit
 //		return result;
 //	}
 
+
+	public boolean isComfirmed() {
+		return comfirmed;
+	}
+
+	public void setComfirmed(boolean comfirmed) {
+		this.comfirmed = comfirmed;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

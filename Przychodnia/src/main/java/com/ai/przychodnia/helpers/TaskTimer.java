@@ -1,34 +1,16 @@
 package com.ai.przychodnia.helpers;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.ai.przychodnia.model.Visit;
 import com.ai.przychodnia.service.VisitService;
 
 public class TaskTimer {
 
-	private int visitId;
+	public TaskTimer() {}		
 	
-	@Autowired
-	VisitService service;
-	
-	public TaskTimer() {}	
-	
-	
-	public void addRemoveVisitTask(int vid, long delayMilis){
+	public void addRemoveVisitTask(int vid, long delayMilis, VisitService service){
 		Timer timer = new Timer();
-		TimerTask task = new TimerTask() {
-			
-			@Override
-			public void run() {
-				service.deleteVisitById(vid);
-				timer.cancel();
-				timer.purge();
-			}
-		};
+		Task task = new Task(vid, timer, service);
 		timer.schedule(task, delayMilis);
 	}
 	

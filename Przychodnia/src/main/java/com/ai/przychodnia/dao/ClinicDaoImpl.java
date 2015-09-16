@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.model.Clinic;
-import com.ai.przychodnia.model.Reg_notification;
 
 @Repository("clinicDao")
 public class ClinicDaoImpl extends AbstractDao<Integer, Clinic> implements ClinicDao {

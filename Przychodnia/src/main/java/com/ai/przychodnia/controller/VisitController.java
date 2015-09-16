@@ -35,6 +35,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ai.przychodnia.helpers.DaysDecoder;
+import com.ai.przychodnia.helpers.TaskTimer;
 import com.ai.przychodnia.model.Clinic;
 import com.ai.przychodnia.model.Doctor_Clinic;
 import com.ai.przychodnia.model.User;
@@ -59,9 +60,17 @@ public class VisitController
 	@Autowired
 	MessageSource messageSource;
 
-	/*
-	 * This method will provide the medium to add a new user.
-	 */
+	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
+	public ModelAndView visitList(ModelMap model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName();
+	    User user = userService.findUserByUsername(name);
+//	    
+//	    List<Visit> visists = service.f
+//	    model.addAttribute("visits", visits);
+//		return new ModelAndView("newVisit", model); 
+	}
+	
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
 	public ModelAndView newVisit(/*@ModelAttribute("visit") Visit visit,*/ ModelMap model) {
 		Visit visit = new Visit();
@@ -88,6 +97,8 @@ public class VisitController
 		}
 		try {
 			service.saveVisit(visit);
+			TaskTimer tt = new TaskTimer();
+			tt.addRemoveVisitTask(visit.getId(), 10000, service);
 		} catch (DataIntegrityViolationException e) {
 			/*
 			 * Na wypadek gdyby dwie sejse stweirdzily ze nie naruszaja unikalnosci
@@ -141,6 +152,14 @@ public class VisitController
 		return "newVisitDate";
 	}
 	
+	/**
+	 * Zwraca wolne daty wizyt
+	 * @param pid ID pacjenta
+	 * @param clinic Klinika
+	 * @param did ID lekarza
+	 * @return
+	 * @throws ParseException
+	 */
 	private List<Date> getFreeDates(int pid, Clinic clinic, int did) throws ParseException{
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		Calendar calendar = Calendar.getInstance();
