@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
@@ -31,13 +32,20 @@
 				<td>Clinic</td>
 				<td>Doctor</td>
 				<td>Date</td>
+				<td>Confirm/Cancel</td>
 			</tr>
 		<c:forEach items="${visits}" var="visit">
+		<c:url var="deleteUrl" value="/visits/remove-${visit.id}" />
 			<tr>
 				<td>${visit.clinic.name}</td>
-				<td>${visit.doctor.name}</td>
-				<td>${visit.datee}</td>				
-			</tr>
+				<td>${visit.doctor.name} ${visit.doctor.surname}</td>
+				<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${visit.datee}"/></td>
+				<td class="remove" style="width: 10%">
+					<form:form method="POST" action="${deleteUrl}" class="delForm">
+						<input type="submit" value="" alt="asasd" class="deleteSubmit">
+					</form:form>
+				</td>
+				</tr>
 		</c:forEach>
 		</table>
 	</div>

@@ -29,6 +29,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -61,14 +62,22 @@ public class VisitController
 	MessageSource messageSource;
 
 	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
-	public ModelAndView visitList(ModelMap model) {
+	public String visitList(ModelMap model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String name = auth.getName();
 	    User user = userService.findUserByUsername(name);
-//	    
-//	    List<Visit> visists = service.f
-//	    model.addAttribute("visits", visits);
-//		return new ModelAndView("newVisit", model); 
+	    
+	    List<Visit> visits = service.userVisits(user.getId());
+	    model.addAttribute("visits", visits);
+		return "visitList"; 
+	}
+	
+	@RequestMapping(value = { "/remove-{id}" }, method = RequestMethod.POST)
+	public String visitRemove(@PathVariable int id, RedirectAttributes redirectAttributes) {
+		
+		service.deleteVisitById(id);
+		redirectAttributes.addAttribute("success", "Visit was canceled.");
+		return "redirect:/visits/list"; 
 	}
 	
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
@@ -98,7 +107,7 @@ public class VisitController
 		try {
 			service.saveVisit(visit);
 			TaskTimer tt = new TaskTimer();
-			tt.addRemoveVisitTask(visit.getId(), 10000, service);
+			tt.addRemoveVisitTask(visit.getId(), 600000, service);
 		} catch (DataIntegrityViolationException e) {
 			/*
 			 * Na wypadek gdyby dwie sejse stweirdzily ze nie naruszaja unikalnosci
@@ -112,7 +121,7 @@ public class VisitController
 			return "redirect:/visits/new";
 		}
 		redirectAttributes.addAttribute("success", visit + " registered successfully");
-		return "redirect:/visit/list";
+		return "redirect:/visits/list";
 	}
 	@Transactional
 	@RequestMapping(value = { "/new/choose-doctor" }, method = RequestMethod.POST)

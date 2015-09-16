@@ -83,12 +83,11 @@ public class UserController
 				"User " + user.getName() + " " + user.getSurname()
 						+ " registered successfully");*/
 		
-		/* Automatyczne logowanie po rejestracji pacjenta*/ 
 		if (type == 0) {
-			UserDetails userDetails = service.loadUserByUsername(user.getUsername());
-			Authentication auth = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(),
-					userDetails.getAuthorities());
-			SecurityContextHolder.getContext().setAuthentication(auth);
+//			UserDetails userDetails = service.loadUserByUsername(user.getUsername());
+//			Authentication auth = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(),
+//					userDetails.getAuthorities());
+//			SecurityContextHolder.getContext().setAuthentication(auth);
 			redirectAttributes.addAttribute("success", "You have successfully registered and logged in.");
 			return("redirect:/user");
 		}else{		

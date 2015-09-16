@@ -18,5 +18,7 @@ public interface VisitDao
 	void deleteVisit(Visit visit);
 	
 	List<Date> takenTerms(int cid, int did);
+	
+	List<Visit> userVisits(int uid);
 
 }

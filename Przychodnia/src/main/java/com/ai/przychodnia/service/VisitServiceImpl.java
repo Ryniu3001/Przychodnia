@@ -46,5 +46,9 @@ public class VisitServiceImpl implements VisitService
 	public List<Date> takenTerms(int cid, int did){
 		return dao.takenTerms(cid, did);
 	}
+	
+	public List<Visit> userVisits(int uid){
+		return dao.userVisits(uid);
+	}
 
 }

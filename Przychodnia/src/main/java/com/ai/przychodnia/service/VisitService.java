@@ -20,5 +20,7 @@ public interface VisitService
 	Visit findVisitById(int id);
 	
 	List<Date> takenTerms(int cid, int did);
+	
+	List<Visit> userVisits(int uid);
 
 }

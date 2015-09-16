@@ -12,8 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ai.przychodnia.model.Visit;
 @Repository("visitDao")
-public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements
-		VisitDao
+public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements VisitDao
 {
 
 	public Visit findById(int id) {
@@ -53,6 +52,15 @@ public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements
 			dates.add(it.next().getDatee());
 		}
 		return dates;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Visit> userVisits(int uid){
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("patient.id", uid));
+		List <Visit> visits = new ArrayList<Visit>();
+		visits = criteria.list();
+		return visits;
 	}
 	
 
