@@ -26,13 +26,19 @@
 		<c:out value="${param['success']}" />
 	</h2>
 	<h2>Visits</h2>
+
+	<fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${date}"/>
 	<div class="CSSTableGenerator">
 		<table>
 			<tr>
 				<td>Clinic</td>
 				<c:choose>
-					<c:when test="${doctor == true}">
+					<c:when test="${type == 1}">
 						<td>Patient</td>
+					</c:when>
+					<c:when test="${type == 2}">
+						<td>Patient</td>
+						<td>Doctor</td>
 					</c:when>
 					<c:otherwise>
 						<td>Doctor</td>
@@ -43,24 +49,48 @@
 			</tr>
 		<c:forEach items="${visits}" var="visit">
 		<c:url var="deleteUrl" value="/visits/remove-${visit.id}" />
-			<tr>
-				<td>${visit.clinic.name}</td>
-				<c:choose>
-					<c:when test="${doctor == true}">
-						<td>${visit.patient.name} ${visit.patient.surname}</td>
-					</c:when>
-					<c:otherwise>
-						<td>${visit.doctor.name} ${visit.doctor.surname}</td>
-					</c:otherwise>
-				</c:choose>
-				<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm" value="${visit.datee}"/></td>
-				<td class="remove" style="width: 10%">
-					<form:form method="POST" action="${deleteUrl}" class="delForm">
-						<input type="submit" value="" class="deleteSubmit">
-					</form:form>
-				</td>
+		<c:url var="confirmUrl" value="/visits/confirm-${visit.id}" />
+				<tr>
+					<td>${visit.clinic.name}</td>
+					<c:choose>
+						<c:when test="${type == 1}">
+							<td>${visit.patient.name}${visit.patient.surname}</td>
+						</c:when>
+						<c:when test="${type == 2}">
+							<td>${visit.patient.name}${visit.patient.surname}</td>
+							<td>${visit.doctor.name}${visit.doctor.surname}</td>
+						</c:when>
+						<c:otherwise>
+							<td>${visit.doctor.name}${visit.doctor.surname}</td>
+						</c:otherwise>
+					</c:choose>
+					<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm"
+							value="${visit.datee}" /></td>
+
+					<c:choose>
+						<c:when test="${date > visit.datee}">
+							<!-- Wizyta juz sie odbyla lub trwa -->
+						</c:when>
+						<c:otherwise>
+							<c:choose>
+								<c:when test="${visit.comfirmed == true}">
+									<td class="remove" style="width: 10%"><form:form
+											method="POST" action="${deleteUrl}" class="delForm">
+											<input type="submit" value="" class="deleteSubmit">
+										</form:form></td>
+								</c:when>
+								<c:otherwise>
+									<td class="remove" style="width: 10%"><form:form
+											method="GET" action="${confirmUrl}" class="accForm">
+											<input type="submit" value="" class="acceptSubmit">
+										</form:form></td>
+								</c:otherwise>
+							</c:choose>
+						</c:otherwise>
+					</c:choose>
+
 				</tr>
-		</c:forEach>
+			</c:forEach>
 		</table>
 	</div>
 	<br />

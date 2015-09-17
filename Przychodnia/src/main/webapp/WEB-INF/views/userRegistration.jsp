@@ -77,6 +77,19 @@
 				<td><form:errors path="house_nr" cssClass="error" /></td>
 			</tr>
 
+			<c:choose>
+				<c:when test="${type == 1}">
+					<tr>
+						<td><label for="pwz">PWZ: </label></td>
+						<td><form:input path="pwz" id="pwz" /></td>
+						<td><form:errors path="pwz" cssClass="error" /></td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
+
+
 			<tr>
 				<td><label for="ssn">Username: </label></td>
 				<td><form:input path="username" id="username" /></td>
@@ -85,7 +98,7 @@
 
 			<tr>
 				<td><label for="ssn">Password: </label></td>
-				<td><form:input path="password" id="password" /></td>
+				<td><form:input type="password" path="password" id="password" /></td>
 				<td><form:errors path="password" cssClass="error" /></td>
 			</tr>
 

@@ -114,7 +114,7 @@ public class UserController
 	 */
 	@RequestMapping(value = { "/edit-{username}-user" }, method = RequestMethod.POST)
 	public String updateUser(@Valid User user, BindingResult result,
-			ModelMap model, HttpServletRequest request) {
+			ModelMap model, RedirectAttributes redirectAttr) {
 
 		if (result.hasErrors()) {
 			return "userRegistration";
@@ -140,7 +140,9 @@ public class UserController
 		model.addAttribute("success",
 				"User " + user.getName() + " " + user.getSurname()
 						+ " updated successfully");
-		return "redirect:/admin";
+		redirectAttr.addFlashAttribute("success", "User " + user.getName() + " " + user.getSurname()
+						+ " updated successfully" );
+		return "redirect:/";
 	}
 
 	/*

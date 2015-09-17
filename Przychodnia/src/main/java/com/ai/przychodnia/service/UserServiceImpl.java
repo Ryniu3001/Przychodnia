@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ai.przychodnia.dao.RegNotificationDao;
 import com.ai.przychodnia.dao.UserDao;
+import com.ai.przychodnia.helpers.Type;
 import com.ai.przychodnia.model.Reg_notification;
 import com.ai.przychodnia.model.User;
 
@@ -36,8 +37,13 @@ public class UserServiceImpl implements UserService
 	}
 
 	public void saveUser(User user) {
-		dao.saveUser(user);
-		notifyDao.newNotification(new Reg_notification(false,user));
+		if (user.getType() == Type.patients.getValue()){
+			dao.saveUser(user);
+			notifyDao.newNotification(new Reg_notification(false,user));
+		}else{
+			user.setIs_enabled(true);
+			dao.saveUser(user);
+		}
 	}
 
 	public void updateUser(User user) {

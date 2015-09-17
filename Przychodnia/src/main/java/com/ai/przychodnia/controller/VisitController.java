@@ -72,7 +72,10 @@ public class VisitController
 	    	visits = service.userVisits(user.getId());
 	    else if (user.getType() == Type.doctors.getValue())
 	    	visits = service.doctorVisits(user.getId());
-	    model.addAttribute("doctor", user.getType() == Type.doctors.getValue() ? true : false);
+	    else if (user.getType() == Type.admins.getValue())
+	    	visits = service.findAllVisits();
+	    model.addAttribute("date", new Date());
+	    model.addAttribute("type", user.getType());
 	    model.addAttribute("visits", visits);
 		return "visitList"; 
 	}
@@ -82,6 +85,17 @@ public class VisitController
 		
 		service.deleteVisitById(id);
 		redirectAttributes.addAttribute("success", "Visit was canceled.");
+		return "redirect:/visits/list"; 
+	}
+	
+	@RequestMapping(value = { "/confirm-{id}" }, method = RequestMethod.GET)
+	public String confirmVisit(@PathVariable int id, RedirectAttributes redirectAttributes) {
+		
+		Visit visit = service.findById(id);
+		visit.setComfirmed(true);
+		service.updateVisit(visit);
+		
+		redirectAttributes.addAttribute("success", "Visit was confirmed.");
 		return "redirect:/visits/list"; 
 	}
 	
@@ -125,7 +139,7 @@ public class VisitController
 			redirectAttributes.addFlashAttribute("result", result);
 			return "redirect:/visits/new";
 		}
-		redirectAttributes.addAttribute("success", visit + " registered successfully");
+		redirectAttributes.addAttribute("success", "Visit registered successfully");
 		return "redirect:/visits/list";
 	}
 	
@@ -207,6 +221,7 @@ public class VisitController
 		
 		List<Date> takenTerms = service.takenTerms(clinic.getId(), did);
 		
+		
 		List<Date> list = new ArrayList<Date>();
 		/** Z przedzialu 2 tygodni wybiera tylko te dni i godziny w ktorych pracuje doktor */
 		for (calendar.getTime(); calendar.getTime().before(t2); calendar.add(Calendar.MINUTE, 30)){
@@ -228,6 +243,8 @@ public class VisitController
 				//Nie uwzglednia godzin z juz umowionych wizyt
 				if (takenTerms.contains(new Timestamp(calendar.getTimeInMillis())))
 					continue;
+				
+				
 				
 				if ((s != null) && ((format.parse(s[0]).before(format.parse(cal))) 
 						&& ((format.parse(s[1]).after(format.parse(cal))))) 

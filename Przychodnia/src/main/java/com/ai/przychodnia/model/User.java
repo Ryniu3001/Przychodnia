@@ -1,10 +1,15 @@
 package com.ai.przychodnia.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
@@ -35,7 +40,7 @@ public class User
 	@Column(name = "SURNAME", nullable = false)
 	private String surname;
 	
-	@Size(max=11)
+	@Size(min=11, max=11)
 	@NotEmpty
 	@Digits(integer=11, fraction=0)
 	@Column(name = "PESEL", nullable = false, unique=true)
@@ -80,11 +85,20 @@ public class User
 	@Column(name = "IS_ENABLED", nullable = false)
 	private boolean is_enabled;
 	
-//	@OneToMany(mappedBy = "pk.doctor", cascade=CascadeType.ALL)
-//	private Set<Doctor_Clinic> doctorsInClinic = new HashSet<Doctor_Clinic>(0);
+	@OneToMany(mappedBy = "pk.doctor", cascade=CascadeType.ALL)
+	private Set<Doctor_Clinic> doctorsInClinic = new HashSet<Doctor_Clinic>(0);
 	
 	
 	/* Setter and getters */
+	
+	public Set<Doctor_Clinic> getDoctorsInClinic() {
+		return doctorsInClinic;
+	}
+
+	public void setDoctorsInClinic(Set<Doctor_Clinic> doctorsInClinic) {
+		this.doctorsInClinic = doctorsInClinic;
+	}
+	
     public int getId() {
 		return id;
 	}

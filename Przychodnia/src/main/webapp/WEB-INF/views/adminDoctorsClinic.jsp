@@ -9,30 +9,19 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main.css" />">
 <title>Form</title>
-<style>
-.errorBlock {
-	border: 1px solid;
-	margin: 10px 0px;
-	padding: 15px 10px 15px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	color: #D8000C;
-	background-color: #FFBABA;
-	background-image: url('resources/error.png');
-	background-size: 3%;
-}
-</style>
+
 </head>
 
 <body>
 	<h2><%@include file="helpers/welcomeUserName.jsp"%></h2>
 	<h2 class="success"><c:out value="${param['success']}" /></h2>
+	<form:errors path="dc" class="errorBlock" />
 	<h2>FORM</h2>
 	
 	<c:set var="hours">06:00,06:30,07:00,07:30,08:00,08:30,09:00,09:30,10:00,10:30,11:00,11:30,12:00,
 						12:30,13:00,13:30,14:00,14:30,15:00,15:30,16:00,16:30,17:00,17:30,18:00</c:set>
 
-	<form:errors path="dc" class="errorBlock" />
+	
 	<form:form method="POST" modelAttribute="dc">
 
 <%-- 		<form:input type="hidden" path="pk" id="pk" /> --%>
@@ -79,16 +68,26 @@
 				<td><form:input type="hidden" path="contract_Expire" id="contract_Expire" /></td>
 				<td><form:errors path="contract_Expire" cssClass="error" /></td>
 			</tr>
-			<tr>
-				<td><label for="doctor">Doctor: </label></td>
-				<td><form:select name="doctor" path="pk.doctor.id" style="width: 200px;">
-						<option value="-1">SELECT</option>
-						<c:forEach items="${doctors}" var="doctor">
-							<option value="${doctor.id}">${doctor}</option>
-						</c:forEach>
-				</form:select></td>
-				<td><form:errors path="doctor" cssClass="error" /></td>
-			</tr>
+			<c:choose>
+					<c:when test="${type == 1}">
+						<td><label for="doctor">Doctor: </label></td>
+						<td><form:input path="" disabled="true" id="doctor" value="${doctors[0].name} ${doctors[0].surname}" /> </td>
+						<td><form:input type="hidden" path="doctor.id" id="doctor.id" value="${doctors[0].id}" /> </td>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td><label for="doctor">Doctor: </label></td>
+							<td><form:select name="doctor" path="pk.doctor.id" style="width: 200px;">
+									<option value="-1">SELECT</option>
+									<c:forEach items="${doctors}" var="doctor">
+										<option value="${doctor.id}">${doctor}</option>
+									</c:forEach>
+							</form:select></td>
+							<td><form:errors path="doctor" cssClass="error" /></td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+			
 			<tr>
 				<td><label for="clinic">Clinic: </label></td>
 				<td><form:select name="clinic" path="clinic.id" style="width: 200px;">

@@ -1,5 +1,6 @@
 package com.ai.przychodnia.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +13,8 @@ import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
@@ -188,20 +191,27 @@ public class AdminController
 
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.GET)
 	public String assign(ModelMap model) {
-	
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName();
+	    User user = service.findUserByUsername(name);
 		Doctor_Clinic dc = new Doctor_Clinic();
 		List<Clinic> clinics = clinicService.findAllClinics();
-		List<User> doctors = service.findAllUsers(1);
+		List<User> doctors = new ArrayList<User>();
+		if (user.getType() == Type.doctors.getValue())
+			doctors.add(user);
+		else
+			doctors = service.findAllUsers(1);
 
 		model.addAttribute("dc",dc);
 		model.addAttribute("clinics", clinics);
 		model.addAttribute("doctors", doctors);
+		model.addAttribute("type", user.getType());
 		return "adminDoctorsClinic";
 	}
 	
 	@RequestMapping(value = {"/clinics/assign" }, method = RequestMethod.POST)
 	public String saveAssign(@ModelAttribute("dc") @Valid Doctor_Clinic assign, BindingResult result,ModelMap model, 
-			HttpServletRequest request) {
+			HttpServletRequest request, RedirectAttributes redirectAttr) {
 		
 		String[] days = request.getParameterValues("days");
 		boolean pkOK = isEverythingOk(assign, result, days);
@@ -214,16 +224,24 @@ public class AdminController
 		try {
 			assignService.newAssignation(assign, days);
 		} catch (DataIntegrityViolationException e) {
-			ObjectError err = new ObjectError("dc", messageSource.getMessage(
-					"unique.dc.assign", null, Locale.getDefault()));
+			ObjectError err = null;
+			if (e.getMessage().contains("2 places"))
+				err = new ObjectError("dc", messageSource.getMessage(
+						"places.dc.assign", null, Locale.getDefault()));
+			else
+				err = new ObjectError("dc", messageSource.getMessage(
+						"unique.dc.assign", null, Locale.getDefault()));
 			result.addError(err);
 			model.addAttribute("clinics", clinicService.findAllClinics());
 			model.addAttribute("doctors", service.findAllUsers(1));
 			return "adminDoctorsClinic";
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 		model.addAttribute("success", "Doctor-Clinic link is created.");
+		redirectAttr.addFlashAttribute("success", "Doctor-Clinic link is created.");
 		
-		return "redirect:/admin/";
+		return "redirect:/";
 	}
 	
 	private boolean isEverythingOk(Doctor_Clinic dc, BindingResult result, String[] days){
@@ -240,6 +258,7 @@ public class AdminController
 			result.rejectValue("dayOfWeek", "clinicpk.dc.empty", "Undefined message");
 			isOK = false;
 		}
+		
 		return isOK;
 	}
 	@Transactional

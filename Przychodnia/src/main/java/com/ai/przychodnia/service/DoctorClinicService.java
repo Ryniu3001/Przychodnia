@@ -1,6 +1,9 @@
 package com.ai.przychodnia.service;
 
+import java.text.ParseException;
 import java.util.List;
+
+import org.springframework.dao.DataIntegrityViolationException;
 
 import com.ai.przychodnia.model.DoctorClinicId;
 import com.ai.przychodnia.model.Doctor_Clinic;
@@ -13,7 +16,7 @@ public interface DoctorClinicService {
 
 	void newAssignation(Doctor_Clinic assign);
 	
-	void newAssignation(Doctor_Clinic assign, String[] days);
+	void newAssignation(Doctor_Clinic assign, String[] days) throws DataIntegrityViolationException, ParseException;
 
 	void deleteAssignationById(DoctorClinicId id);
 	

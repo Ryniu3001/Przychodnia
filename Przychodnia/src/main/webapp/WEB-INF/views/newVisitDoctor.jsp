@@ -66,7 +66,7 @@
 						style="width: 200px;">
 						<option value="-1">SELECT</option>
 						<c:forEach items="${doctors}" var="doctor">
-							<option value="${doctor.id}">${doctor.name}</option>
+							<option value="${doctor.id}">${doctor.name} ${doctor.surname} ${doctor.pwz}</option>
 						</c:forEach>
 					</form:select></td>
 			</tr>

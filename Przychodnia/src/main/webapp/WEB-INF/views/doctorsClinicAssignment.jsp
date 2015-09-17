@@ -39,7 +39,7 @@
 					<td rowspan="${clinic.doctorsInClinic.size()}">${clinic.name}</td>
 
 					<c:forEach items="${clinic.doctorsInClinic}" var="doctor">
-					<c:url var="deleteUrl" value="/admin/clinics/assignment/delete-${clinic.id}-${doctor.pk.doctor.id}-${doctor.pk.dayOfWeek}" />
+					<c:url var="deleteUrl" value="/clinics/assignment/delete-${clinic.id}-${doctor.pk.doctor.id}-${doctor.pk.dayOfWeek}" />
 						<c:choose>
 							<c:when test="${count == 0}">
 							
@@ -67,10 +67,12 @@
 			</c:forEach>
 		</table>
 	</div>
-	<br/><br/>
-	<a href="<c:url value='/admin/clinics/assign/' />">Add Doctor to Clinic</a>
 	<br/>
-	<a href="<c:url value='/admin/' />">Back to Main Page</a>
+	<br/>
+	<a href="<c:url value='/' />">Back to Main Page</a><br/>
+	<a href="<c:url value='/admin/clinics/assign/' />">New</a>
+	
+	
 
 </body>
 </html>

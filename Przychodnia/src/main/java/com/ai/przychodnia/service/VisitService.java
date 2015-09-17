@@ -21,8 +21,14 @@ public interface VisitService
 	
 	List<Date> takenTerms(int cid, int did);
 	
+	List<Date> takenTerms(int cid);
+	
+	List<Date> doctorTerms(int did);
+	
 	List<Visit> userVisits(int uid);
 	
 	List<Visit> doctorVisits(int did);
+	
+	void updateVisit(Visit visit);
 
 }

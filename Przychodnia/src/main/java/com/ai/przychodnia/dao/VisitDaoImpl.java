@@ -55,6 +55,32 @@ public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements VisitDa
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Date> takenTerms(int cid){
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("clinic.id", cid));
+		List<Visit> visits = criteria.list();
+		List<Date> dates = new ArrayList<Date>();
+		for (Iterator<Visit> it = visits.iterator(); it.hasNext(); )
+		{
+			dates.add(it.next().getDatee());
+		}
+		return dates;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Date> doctorTerms(int did){
+		Criteria criteria = createEntityCriteria();
+		criteria.add(Restrictions.eq("doctor.id", did));
+		List<Visit> visits = criteria.list();
+		List<Date> dates = new ArrayList<Date>();
+		for (Iterator<Visit> it = visits.iterator(); it.hasNext(); )
+		{
+			dates.add(it.next().getDatee());
+		}
+		return dates;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Visit> userVisits(int uid){
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("patient.id", uid));
@@ -67,6 +93,7 @@ public class VisitDaoImpl extends AbstractDao<Integer, Visit> implements VisitDa
 	public List<Visit> doctorVisits(int did){
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("doctor.id", did));
+		criteria.add(Restrictions.eq("comfirmed", true));
 		List <Visit> visits = new ArrayList<Visit>();
 		visits = criteria.list();
 		return visits;

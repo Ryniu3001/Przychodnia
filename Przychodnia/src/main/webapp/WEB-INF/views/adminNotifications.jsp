@@ -39,7 +39,7 @@
 							action="${acceptUrl}">
 							<input type="submit" value="" class="acceptSubmit">
 						</form:form></td>
-					<td>${notify.user_id.surname}${notify.user_id.name}
+					<td>${notify.user_id.surname} ${notify.user_id.name}
 						${notify.user_id.pesel}</td>
 					<%-- 				<td class="remove"><a href="<c:url value='/admin/delete-${notify.id}-${notify.user_id.pesel}-notification' />" class="delete"></a></td>	 --%>
 				<td class="remove"><form:form method="POST" action="${deleteUrl}" class="delForm">

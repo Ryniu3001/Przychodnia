@@ -16,7 +16,8 @@
 	<div id="list">
 		<ul>
 
-			<li><a href="<c:url value="/visits/list" />"><span>List of my visits</span></a></li>
+			<li><a href="<c:url value="/visits/list" />">List of my visits</a></li>
+			<li><a href="<c:url value="/clinics/schedule-${doctor.id}" />">My schedule</a></li>
 		</ul>
 	</div>
 </body>

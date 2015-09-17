@@ -49,7 +49,9 @@ public class DaysDecoder {
 	 * @param map
 	 */
 	public void decode(Doctor_Clinic days, Map<Integer, String[]> map){
-		String[] tmp = days.getDayOfWeek().split("\\, ");
+		String[] tmp = null;
+		if (days.getDayOfWeek() != null)
+			tmp = days.getDayOfWeek().split("\\, ");
 		DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 		String[] hours = {dateFormat.format(days.getHourFrom()), dateFormat.format(days.getHourTo()) };
 
