@@ -88,8 +88,8 @@ public class UserController
 //			Authentication auth = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(),
 //					userDetails.getAuthorities());
 //			SecurityContextHolder.getContext().setAuthentication(auth);
-			redirectAttributes.addAttribute("success", "You have successfully registered and logged in.");
-			return("redirect:/user");
+			redirectAttributes.addAttribute("success", "You have successfully registered.");
+			return("redirect:/login");
 		}else{		
 			redirectAttributes.addAttribute("success", "New doctor is registered.");
 			return("redirect:/admin");

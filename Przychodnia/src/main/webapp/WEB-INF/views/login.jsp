@@ -36,7 +36,7 @@
 </style>
 </head>
 <body onload='document.loginForm.username.focus();'>
-
+<h2 class="success"><c:out value="${param['success']}" /></h2>
 	<h1>Welcome in my medical clinic</h1>
 
 	<div id="login-box">

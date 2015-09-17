@@ -35,8 +35,7 @@
 				<tr>
 					<c:url var="deleteUrl" value="/admin/delete-${notify.id}-${notify.user_id.pesel}-notification" />
 					<c:url var="acceptUrl" value="/admin/accept-${notify.id}-${notify.user_id.pesel}-notification" />
-					<td id="notifyAccept"><form:form method="POST"
-							action="${acceptUrl}">
+					<td id="notifyAccept"><form:form method="POST" action="${acceptUrl}" class="accForm">
 							<input type="submit" value="" class="acceptSubmit">
 						</form:form></td>
 					<td>${notify.user_id.surname} ${notify.user_id.name}
